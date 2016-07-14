@@ -5,3 +5,9 @@ log/*.log
 tmp/*
 
 /.vagrant
+
+.env.*
+.rvmrc
+Capfile
+config/deploy.rb
+config/environments/stage.rb
