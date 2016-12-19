@@ -29,6 +29,12 @@ gem 'state_machine'
 gem 'acts_as_list'
 gem 'dynamic_form'
 
+gem 'delayed_job', '~>4.1.2'
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'request_store'
+gem 'rundeck-ruby-client', '~> 0.1.2'
+
 group :development do
   gem 'debugger', :platform => :mri_19
   #gem 'RedCloth', '>= 4.1.1'

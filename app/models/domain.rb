@@ -13,6 +13,8 @@ class Domain < ActiveRecord::Base
   audited :allow_mass_assignment => true
   has_associated_audits
 
+  include DelayedExtensions
+
   belongs_to :user
 
   has_many :records, :dependent => :destroy

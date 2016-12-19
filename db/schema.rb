@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160706131040) do
+ActiveRecord::Schema.define(:version => 20161219132748) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -70,6 +70,22 @@ ActiveRecord::Schema.define(:version => 20160706131040) do
   end
 
   add_index "cryptokeys", ["domain_id"], :name => "index_cryptokeys_on_domain_id"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "domainmetadata", :force => true do |t|
     t.integer  "domain_id"
@@ -145,7 +161,7 @@ ActiveRecord::Schema.define(:version => 20160706131040) do
     t.integer  "user_id"
     t.boolean  "disabled",    :default => false
     t.boolean  "auth",        :default => true
-    t.boolean  "ordername",   :default => true
+    t.string   "ordername",   :default => "1"
   end
 
   add_index "records", ["domain_id", "ordername"], :name => "index_records_on_domain_id_and_ordername"

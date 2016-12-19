@@ -9,6 +9,8 @@ class Record < ActiveRecord::Base
   audited :associated_with => :domain, :allow_mass_assignment => true
   self.non_audited_columns.delete( self.inheritance_column ) # Audit the 'type' column
 
+  include DelayedExtensions
+
   def self.attributes_protected_by_default
     []
   end
@@ -29,7 +31,7 @@ class Record < ActiveRecord::Base
   before_validation :inherit_attributes_from_domain
   before_save :update_change_date
   after_save  :update_soa_serial
-  after_destroy  :update_soa_serial
+  before_destroy  :update_soa_serial
 
   # Known record types
 
@@ -89,7 +91,7 @@ class Record < ActiveRecord::Base
 
   def update_soa_serial #:nodoc:
     unless self.type == 'SOA' || self.domain.slave?
-      self.domain.soa_record.update_serial!
+      self.domain.soa_record.update_serial! rescue nil
     end
   end
 
