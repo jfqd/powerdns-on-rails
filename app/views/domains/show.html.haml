@@ -57,6 +57,12 @@
       %td= @domain.type.humanize
       %td &nbsp;
 
+    - unless @domain.slave?
+      %tr
+        %td= t :label_domain_serial
+        %td= @domain.notified_serial
+        %td &nbsp;
+
     - if @domain.slave?
       %tr
         %td= t :label_domain_master_server
@@ -105,15 +111,15 @@
     = render :partial => '/domains/soa_record', :object => @domain.soa_record
 
 #domain-records.padded
-  %h2.underline= t :title_domian_rrs
+  %h2.underline= t :title_domain_rrs
   %table.gridwide#record-table
     %tr
-      %td.small= t :label_domain_record_host
-      %td.small= t :label_domain_record_ttl
-      %td.small= t :label_domain_record_type
-      %td.small= t :label_domain_record_priority
-      %td.small= t :label_domain_record_data
-      %td &nbsp;
+      %th.small= t :label_domain_record_host
+      %th.small= t :label_domain_record_ttl
+      %th.small= t :label_domain_record_type
+      %th.small= t :label_domain_record_priority
+      %th.small= t :label_domain_record_data
+      %th &nbsp;
     = render :partial => 'record', :collection => @domain.records_without_soa
 
 - unless @domain.slave?

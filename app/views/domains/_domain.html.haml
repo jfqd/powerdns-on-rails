@@ -1,7 +1,11 @@
-%tr
+%tr{:class => cycle(:even, :odd)}
   %td
     = link_to domain.name, domain_path( domain )
-  %td &nbsp;
+  %td
+    = domain.type.capitalize
+  %td
+    - if domain.user
+      = link_to domain.user.login, user_path( domain.user )
   %td
     = link_to info_icon('table_edit.png', 'zone-edit'), edit_domain_path(domain)
     = link_to info_icon('report_magnify.png', 'audits'), audits_path(:action => :domain, :id => domain)

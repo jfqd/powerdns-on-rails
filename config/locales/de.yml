@@ -1,12 +1,12 @@
-en:
+de:
   date:
     formats:
       # Use the strftime parameters for formats.
       # When no format has been given, it uses default.
       # You can provide other formats here if you like!
-      default: "%m/%d/%Y"
-      short: "%b %d"
-      long: "%B %d, %Y"
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
 
     day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
@@ -22,51 +22,51 @@ en:
 
   time:
     formats:
-      default: "%m/%d/%Y %I:%M %p"
-      time: "%I:%M %p"
-      short: "%d %b %H:%M"
-      long: "%B %d, %Y %H:%M"
-    am: "am"
-    pm: "pm"
+      default: "%d.%m.%Y %H:%M"
+      time: "%H:%M"
+      short: "%d. %B, %H:%M"
+      long: "%A, %d. %B %Y, %H:%M"
+    am: "vormittags"
+    pm: "nachmittags"
 
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: 'eine halbe Minute'
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        one:   "weniger als 1 Sekunde"
+        other: "weniger als %{count} Sekunden"
       x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
+        one:   "1 Sekund"
+        other: "%{count} Sekunden"
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        one:   "weniger als 1 Minute"
+        other: "lweniger als %{count} Minuten"
       x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
+        one:   "1 Minute"
+        other: "%{count} Minuten"
       about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
+        one:   "etwa 1 Stunden"
+        other: "etwa %{count} Stunden"
       x_days:
-        one:   "1 day"
-        other: "%{count} days"
+        one:   "1 Tag"
+        other: "%{count} Tage"
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one:   "etwa 1 Monat"
+        other: "etwa %{count} Monate"
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
+        one:   "1 Monat"
+        other: "%{count} Monate"
       about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
+        one:   "etwa 1 Jahr"
+        other: "etwa %{count} Jahre"
       over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
+        one:   "mehr als 1 Jahr"
+        other: "mehr als %{count} Jahre"
 
 # Used in array.to_sentence.
   support:
     array:
-      sentence_connector: "and"
+      sentence_connector: "und"
       skip_last_comma: false
 
   activerecord:
@@ -97,20 +97,20 @@ en:
         circular_dependency: "This relation would create a circular dependency"
 
 # Generic texts
-  generic_save: "Save"
-  generic_search: "Search"
-  generic_cancel: "Cancel"
-  generic_change: "Change"
-  generic_remove: "Remove"
-  generic_create: "Create"
-  generic_update: "Update"
-  generic_yes: "Yes"
-  generic_no: "No"
+  generic_save: "Sichern"
+  generic_search: "Suche"
+  generic_cancel: "Abbrechen"
+  generic_change: "Ändern"
+  generic_remove: "Löschen"
+  generic_create: "Erstellen"
+  generic_update: "Ändern"
+  generic_yes: "Ja"
+  generic_no: "Nein"
 
 ### Views
 
 # Layout
-  layout_main_title: "DNS Configuration"
+  layout_main_title: "DNS Konfiguration"
 
   layout_menu_home: "Home"
   layout_menu_domains: "Domains"
@@ -518,8 +518,8 @@ en:
     Add a new user to PowerDNS on Rails
   title_users: "Users"
   
-  header_email: Mail
-  header_role: Role
+  header_email: E-Mail
+  header_role: Rolle
   header_state: Status
 
 # User show

@@ -1,3 +1,5 @@
+- css_class = cycle('even', 'odd')
+
 %div{ :style => "display: none;" }
   %div{ :id => "new-user-#{user.id}" }= t :help_user_create
   %div{ :id => "active-user-#{user.id}" }= t :help_user_is_active
@@ -7,7 +9,7 @@
   %div{ :id => "reactivate-user-#{user.id}" }= t :help_user_activate
   %div{ :id => "delete-user-#{user.id}" }= t :help_user_delete
 
-%tr[ user, :show ]
+%tr[ user, :show ]{:class => css_class}
   %td= link_to user.login, user_path( user )
   %td= user.email
   %td= user.admin? ? t("label_user_role.admin") : t("label_user_role.user")

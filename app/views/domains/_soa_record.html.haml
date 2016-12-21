@@ -8,16 +8,24 @@
       %td= soa_record.contact
     %tr
       %td= t :label_domain_refresh
-      %td= soa_record.refresh
+      %td
+        = human_readable_ttl(soa_record.refresh)
+        %small== (#{soa_record.refresh})
     %tr
       %td= t :label_domain_retry
-      %td= soa_record.retry
+      %td
+        = human_readable_ttl(soa_record.retry)
+        %small== (#{soa_record.retry})
     %tr
       %td= t :label_domain_expire
-      %td= soa_record.expire
+      %td
+        = human_readable_ttl(soa_record.expire)
+        %small== (#{soa_record.expire})
     %tr
       %td= t :label_domain_minimum
-      %td= soa_record.minimum
+      %td
+        = human_readable_ttl(soa_record.minimum)
+        %small== (#{soa_record.minimum})
 
   - if current_user
     #soa-form{ :style => "display: none;" }

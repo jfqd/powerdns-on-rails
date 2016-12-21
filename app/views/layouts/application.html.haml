@@ -2,7 +2,7 @@
 %html
   %head
     %title= page_title
-    = stylesheet_link_tag 'application', 'tipTip', 'bold-dark'
+    = stylesheet_link_tag 'application', 'tipTip', 'bold-dark', 'overwrite'
     = javascript_include_tag :defaults, 'jquery.tipTip', 'humane'
     = csrf_meta_tag
   %body
@@ -32,13 +32,3 @@
 
         = yield
       #Footer
-        = link_to "PowerDNS on Rails", "http://www.opensourcery.co.za/powerdns-on-rails", :target => '_blank'
-        \- &copy; Kenneth Kalmer
-        %br
-        Released under the MIT License.
-        %br
-        %br
-        = link_to "Report Bugs", "http://kennethkalmer.lighthouseapp.com/projects/11831-powerdns-on-rails", :target => '_blank'
-        \-
-        = link_to "Github", "http://github.com/kennethkalmer/powerdns-on-rails", :target => '_blank'
-

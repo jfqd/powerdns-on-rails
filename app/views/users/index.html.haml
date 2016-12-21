@@ -1,11 +1,20 @@
 #new-user{ :style => 'display: none' }= t :help_user_add
 
+%ul.start
+  %li
+    = link_to info_icon('user_add.png', 'new-user'), new_user_path
+    = link_to t(:label_user_create), new_user_path
+
 %h2.underline= t :title_users
 
 %table.gridwide
   %tr
-    %td{ :colspan => 5 }
-      = link_to info_icon('user_add.png', 'new-user'), new_user_path
-      = link_to t(:label_user_create), new_user_path
+    %tr
+      %th= t(:header_user)
+      %th= t(:header_email)
+      %th= t(:header_role)
+      %th= t(:header_state)
+      %th= t(:header_actions)
+  
   = render :partial => 'user', :collection => @users
 
