@@ -12,3 +12,5 @@ Capfile
 config/deploy.rb
 config/environments/stage.rb
 .rsync_cache
+
+env.production
