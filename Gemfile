@@ -11,7 +11,8 @@ group :assets do
 end
 
 platforms :ruby do
-  gem 'mysql2'
+  gem 'mysql2', '0.4.9'
+  gem 'activerecord-mysql2-adapter'
   # gem 'pg', '>= 0.9.0'
   # gem 'sqlite3'
 end
@@ -33,9 +34,9 @@ gem 'delayed_job', '~>4.1.2'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'request_store'
-gem 'rundeck-ruby-client', '~> 0.1.2'
 
 group :development do
+  gem 'test-unit', '~> 3.0'
   gem 'debugger', :platform => :mri_19
   #gem 'RedCloth', '>= 4.1.1'
 end
