@@ -6,8 +6,8 @@ module DelayedExtensions
       before_save    :process_axfr_notification
       private
       def self.send_axfr_notification(args={})
-        session = Rundeck::Session.new(ENV['RUNDECK_URL'], ENV['RUNDECK_TOKEN'])
-        job = Rundeck::Job.find(session, ENV['RUNDECK_JOB_UUID'])
+        session = ::Rundeck::Session.new(ENV['RUNDECK_URL'], ENV['RUNDECK_TOKEN'])
+        job = ::Rundeck::Job.find(session, ENV['RUNDECK_JOB_UUID'])
         job.execute!(args)
       end
     end
