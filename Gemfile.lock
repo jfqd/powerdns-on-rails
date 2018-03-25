@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://qsm01-gemsrv.qutic.net/
   specs:
     RedCloth (4.3.2)
     actionmailer (3.2.22.5)
@@ -295,7 +296,7 @@ DEPENDENCIES
   rails (~> 3.2.22)!
   request_store!
   rspec-rails!
-  rundeck-ruby-client
+  rundeck-ruby-client (~> 0.1.2)!
   sass-rails!
   state_machine!
   test-unit (~> 3.0)!
