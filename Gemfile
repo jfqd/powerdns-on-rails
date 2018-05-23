@@ -11,8 +11,8 @@ source 'https://rubygems.org' do
   end
 
   platforms :ruby do
-    gem 'mysql2' #, '0.3.19'
-    gem 'activerecord-mysql2-adapter'
+    gem 'mysql2', '0.3.19'
+    # gem 'activerecord-mysql2-adapter'
     # gem 'pg', '>= 0.9.0'
     # gem 'sqlite3'
   end
