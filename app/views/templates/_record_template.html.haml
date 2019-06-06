@@ -1,10 +1,10 @@
 %tr[ record_template, :marker ]
 %tr[ record_template, :show ]
-  %td{ style: 'width:250px' }= record_template.name
+  %td{ style: 'max-width:250px' }= record_template.name
   %td{ :width => 50 }= record_template.ttl
   %td{ :width => 30 }= record_template.record_type
   %td{ :width => 30 }= record_template.prio
-  %td{ style: 'width:250px' }= record_template.content unless record_template.soa?
+  %td{ style: 'max-width:250px' }= record_template.content unless record_template.soa?
   %td{ :width => 36 }
     = link_to_function info_icon('table_edit.png', 'edit-record-template'), "editRecordTemplate(#{record_template.id})"
     = link_to info_icon('table_delete.png', 'delete-record-template'), record_template_path( record_template ), :method => :delete, :confirm => t(:confirm_template_record_delete)
@@ -75,10 +75,10 @@
                   = help_icon('help-minimum')
                 %td &nbsp;
         - else
-          %td{ style: 'width:250px' }= f.text_field :name, :size => 15
+          %td{ style: 'max-width:250px' }= f.text_field :name, :size => 15
           %td{ :width => 50 }= f.text_field :ttl, :size => 3
           %td{ :width => 30 }= record_template.record_type
-          %td{ style: 'width:250px' }
+          %td{ style: 'max-width:250px' }
             - if record_template.record_type == 'MX'
               = f.text_field :prio, :size => 1
           %td{ :width => 250 }= f.text_field :content, :size => 15
