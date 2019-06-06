@@ -2,13 +2,13 @@
 
 %tr[ record, :marker ]
 %tr[ record, :show ]{:class => css_class}
-  %td{ :width => 250 }= record.shortname
+  %td{ style: 'width:250px' }= record.shortname
   %td{ :width => 90 }
     = human_readable_ttl(record.ttl)
     %small== (#{record.ttl})
   %td{ :width => 30 }= record.type
   %td{ :width => 30 }= record.prio
-  %td{ :width => 250 }= record.content
+  %td{ style: 'width:250px' }= record.content
   %td{ :width => 39 }
     - unless record.domain.slave?
       - if current_user || current_token.can_change?( record )
@@ -24,7 +24,7 @@
           %div[ record, :error ]
             %table.gridwide
               %tr
-                %td{ :width => 250 }= f.text_field :shortname, :size => 15
+                %td{ style: 'width:250px' }= f.text_field :shortname, :size => 15
                 %td{ :width => 50 }= f.text_field :ttl, :size => 3
                 %td{ :width => 30 }= record.type
                 %td{ :width => 30 }
@@ -32,7 +32,7 @@
                     = f.text_field :prio, :size => 2
                   - else
                     &nbsp;
-                %td{ :width => 250 }= f.text_field :content, :size => 15
+                %td{ style: 'width:250px' }= f.text_field :content, :size => 15
                 %td{ :width => 39 }
                   = image_submit_tag "table_save.png", { :class => 'nb' }
                   = link_to_function image_tag("cancel.png"), "hideRecord(#{record.id}, '#{record.type.downcase}')"
