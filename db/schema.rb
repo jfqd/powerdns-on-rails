@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20161219132748) do
+ActiveRecord::Schema.define(:version => 20190606080539) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -61,12 +61,10 @@ ActiveRecord::Schema.define(:version => 20161219132748) do
   add_index "comments", ["name", "type"], :name => "index_comments_on_name_and_type"
 
   create_table "cryptokeys", :force => true do |t|
-    t.integer  "domain_id"
-    t.integer  "flags"
-    t.boolean  "active"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "domain_id"
+    t.integer "flags"
+    t.boolean "active"
+    t.text    "content"
   end
 
   add_index "cryptokeys", ["domain_id"], :name => "index_cryptokeys_on_domain_id"
@@ -88,11 +86,9 @@ ActiveRecord::Schema.define(:version => 20161219132748) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "domainmetadata", :force => true do |t|
-    t.integer  "domain_id"
-    t.string   "kind"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "domain_id"
+    t.string  "kind"
+    t.text    "content"
   end
 
   add_index "domainmetadata", ["domain_id"], :name => "index_domainmetadata_on_domain_id"
@@ -118,11 +114,11 @@ ActiveRecord::Schema.define(:version => 20161219132748) do
     t.string   "action"
     t.string   "record_type"
     t.string   "name"
-    t.string   "content"
+    t.string   "content",     :limit => 500
     t.integer  "ttl"
     t.integer  "prio"
-    t.integer  "position",                      :null => false
-    t.boolean  "active",      :default => true
+    t.integer  "position",                                     :null => false
+    t.boolean  "active",                     :default => true
     t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -140,28 +136,28 @@ ActiveRecord::Schema.define(:version => 20161219132748) do
   create_table "record_templates", :force => true do |t|
     t.integer  "zone_template_id"
     t.string   "name"
-    t.string   "record_type",      :default => "", :null => false
-    t.string   "content",          :default => "", :null => false
-    t.integer  "ttl",                              :null => false
+    t.string   "record_type",                     :default => "", :null => false
+    t.string   "content",          :limit => 500, :default => "", :null => false
+    t.integer  "ttl",                                             :null => false
     t.integer  "prio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "records", :force => true do |t|
-    t.integer  "domain_id",                      :null => false
-    t.string   "name",        :default => "",    :null => false
-    t.string   "type",        :default => "",    :null => false
-    t.string   "content",     :default => "",    :null => false
-    t.integer  "ttl",                            :null => false
+    t.integer  "domain_id",                                     :null => false
+    t.string   "name",                       :default => "",    :null => false
+    t.string   "type",                       :default => "",    :null => false
+    t.string   "content",     :limit => 500, :default => "",    :null => false
+    t.integer  "ttl",                                           :null => false
     t.integer  "prio"
-    t.integer  "change_date",                    :null => false
+    t.integer  "change_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "disabled",    :default => false
-    t.boolean  "auth",        :default => true
-    t.string   "ordername",   :default => "1"
+    t.boolean  "disabled",                   :default => false
+    t.boolean  "auth",                       :default => true
+    t.string   "ordername"
   end
 
   add_index "records", ["domain_id", "ordername"], :name => "index_records_on_domain_id_and_ordername"
@@ -176,11 +172,9 @@ ActiveRecord::Schema.define(:version => 20161219132748) do
   end
 
   create_table "tsigkeys", :force => true do |t|
-    t.string   "name"
-    t.string   "algorithm"
-    t.string   "secret"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name"
+    t.string "algorithm"
+    t.string "secret"
   end
 
   add_index "tsigkeys", ["name", "algorithm"], :name => "index_tsigkeys_on_name_and_algorithm", :unique => true
