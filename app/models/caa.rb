@@ -6,6 +6,6 @@
 #
 class CAA < Record
 
-  validates_presence_of :content
+  validates :content, format: { with: /\A0 issue ".*"\Z/, message: 'CAA records must be in the form: 0 issue "<ca>"' }
 
 end
