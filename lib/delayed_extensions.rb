@@ -10,6 +10,11 @@ module DelayedExtensions
         job = ::Rundeck::Job.find(session, ENV['RUNDECK_JOB_UUID'])
         job.execute!(args)
       end
+      def self.dj_queue_size
+        puts ActiveRecord::Base.connection.select_one(
+          "SELECT count(*) AS size FROM delayed_jobs"
+        )["size"]
+      end
     end
   end
   
