@@ -49,7 +49,7 @@ EOS
     end
 
     # Get our domain
-    domain = Domain.find_by_name( params[:auth_token][:domain] )
+    domain = Domain.find_by(name: params[:auth_token][:domain])
     if domain.nil?
       render :text => t(:message_domain_not_found), :status => 404
       return

@@ -2,9 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# If you have a Gemfile, require the gems listed there, including any gems
+# Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require(*Rails.groups)
+
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] ||= "production"
+Dotenv.load ".env.#{ENV["RAILS_ENV"]}", '.env'
 
 module PowerdnsOnRails
   class Application < Rails::Application
@@ -39,7 +42,5 @@ module PowerdnsOnRails
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
-    config.active_record.whitelist_attributes = false
   end
 end

@@ -14,3 +14,4 @@ config/environments/stage.rb
 .rsync_cache
 
 env.production
+assets/.sprockets*

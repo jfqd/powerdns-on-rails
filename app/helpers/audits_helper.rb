@@ -7,7 +7,7 @@ module AuditsHelper
   def link_to_domain_audit( audit )
     caption = "#{audit.version} #{audit.action} by "
     caption << audit_user( audit )
-    link_to_function caption, "toggleDomainAudit(#{audit.id})"
+    link_to caption, '#', onclick: "toggleDomainAudit(#{audit.id}); return false;"
   end
 
   def link_to_record_audit( audit )
@@ -19,7 +19,7 @@ module AuditsHelper
     end
     caption += " #{audit.version} #{audit.action} by "
     caption += audit_user( audit )
-    link_to_function caption, "toggleRecordAudit(#{audit.id})"
+    link_to caption, '#', onclick: "toggleRecordAudit(#{audit.id}); return false;"
   end
 
   def display_hash( hash )

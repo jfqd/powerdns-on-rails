@@ -15,8 +15,8 @@ class ZoneTemplate < ActiveRecord::Base
   self.inheritance_column = 'not_used_here'
   # Scopes
   scope :user, lambda { |user| user.admin? ? nil : where(:user_id => user.id) }
-  scope :with_soa, joins(:record_templates).where('record_templates.record_type = ?', 'SOA')
-  default_scope order('name')
+  scope :with_soa, lambda { joins(:record_templates).where('record_templates.record_type = ?', 'SOA') }
+  default_scope {order('name')}
 
   class << self
 

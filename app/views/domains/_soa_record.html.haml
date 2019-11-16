@@ -65,6 +65,6 @@
               = help_icon('help-minimum')
             %td &nbsp;
           %tr
-            %td.right= link_to_function t(:generic_cancel), "showSOAForm()"
+            %td.right= link_to_function t(:generic_cancel), '#', onclick: "showSOAForm(); return false;"
             %td= submit_tag t(:generic_update)
             %td &nbsp;

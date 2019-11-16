@@ -66,7 +66,7 @@ class Domain < ActiveRecord::Base
 
   # Scopes
   scope :user, lambda { |user| user.admin? ? nil : where(:user_id => user.id) }
-  default_scope order('name')
+  default_scope {order('name')}
 
   class << self
 

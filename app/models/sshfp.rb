@@ -8,6 +8,6 @@
 
 class SSHFP < Record
   
-  validates_format_of :content, :with => /^[1-3] [1-2] ([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$/
+  validates_format_of :content, :with => /\A[1-3] [1-2] ([0-9a-fA-F]{40}|[0-9a-fA-F]{64})\Z/
 
 end

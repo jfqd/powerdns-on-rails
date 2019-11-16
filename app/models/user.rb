@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :confirmable, :validatable,
          :encryptable, :encryptor => :restful_authentication_sha1
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-
   # Virtual attribute for the unencrypted password
   #attr_accessor :password
 
@@ -24,16 +21,12 @@ class User < ActiveRecord::Base
   before_save :check_auth_tokens
   after_destroy :persist_audits
 
-  # prevents a user from submitting a crafted form that bypasses activation
-  # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :admin, :auth_tokens
-
   has_many :domains, :dependent => :nullify
   has_many :zone_templates, :dependent => :nullify
   has_many :audits, :as => :user
 
   # Named scopes
-  scope :active_owners, where(:state => :active, :admin => false)
+  scope :active_owners, lambda { where(:state => :active, :admin => false) }
 
   StateMachine::Machine.ignore_method_conflicts = true
   state_machine :initial => :active do

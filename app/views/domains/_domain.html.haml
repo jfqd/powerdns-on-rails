@@ -12,6 +12,6 @@
     - unless domain.slave?
       = link_to info_icon('brick_go.png', 'macro'), apply_macro_domain_path( domain )
     - if current_user.admin? && domain.user
-      = link_to_function info_icon('database_delete.png', 'delete-zone'), "deleteDomain();" , :id => "delete-link-buffer"
+      = link_to info_icon('database_delete.png', 'delete-zone'), '#', onclick: "deleteDomain(); return false;" , :id => "delete-link-buffer"
     - elsif !current_token
       = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( domain ), :method => :delete, :confirm => t(:confirm_domain_delete, :domain => domain.name)

@@ -8,7 +8,7 @@ class UsersController < InheritedResources::Base
 
   def update
     # strip out blank params
-    params[:user].delete_if { |k,v| v.blank? }
+    user_params.delete_if { |k,v| v.blank? }
     update!
   end
 
@@ -30,6 +30,10 @@ class UsersController < InheritedResources::Base
   def purge
     resource.destroy
     redirect_to users_path
+  end
+  
+  def user_params
+    params.require(:user).permit(:login, :email, :password, :password_confirmation, :admin, :auth_tokens)
   end
 
 end

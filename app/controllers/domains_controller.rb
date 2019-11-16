@@ -43,7 +43,7 @@ class DomainsController < InheritedResources::Base
 
     unless @domain.slave?
       @zone_template = ZoneTemplate.find(params[:domain][:zone_template_id]) unless params[:domain][:zone_template_id].blank?
-      @zone_template ||= ZoneTemplate.find_by_name(params[:domain][:zone_template_name]) unless params[:domain][:zone_template_name].blank?
+      @zone_template ||= ZoneTemplate.find_by(name: params[:domain][:zone_template_name]) unless params[:domain][:zone_template_name].blank?
 
       unless @zone_template.nil?
         begin

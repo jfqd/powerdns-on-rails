@@ -6,7 +6,7 @@
   %td{ :width => 30 }= record_template.prio
   %td{ style: 'max-width:250px' }= record_template.content unless record_template.soa?
   %td{ :width => 36 }
-    = link_to_function info_icon('table_edit.png', 'edit-record-template'), "editRecordTemplate(#{record_template.id})"
+    = link_to info_icon('table_edit.png', 'edit-record-template'), '#', onclick: "editRecordTemplate(#{record_template.id}); return false;"
     = link_to info_icon('table_delete.png', 'delete-record-template'), record_template_path( record_template ), :method => :delete, :confirm => t(:confirm_template_record_delete)
 - if record_template.soa?
   %tr[ record_template, 'show-soa' ]
@@ -85,4 +85,4 @@
 
         %td.top{ :width => 39 }
           = image_submit_tag "table_save.png", { :class => 'nb' }
-          = link_to_function image_tag("cancel.png"), "hideRecordTemplate(#{record_template.id})"
+          = link_to image_tag("cancel.png"), '#', onclick: "hideRecordTemplate(#{record_template.id}); return false;"

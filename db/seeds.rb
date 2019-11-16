@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 # Create our admin user
-user = User.find_by_email('admin@example.com') || User.new(:email => 'admin@example.com')
+user = User.find_by(email:'admin@example.com') || User.new(:email => 'admin@example.com')
 user.login = 'admin' # Not used anymore
 user.password = 'secret'
 user.password_confirmation = 'secret'
@@ -17,7 +17,7 @@ user.save!
 user.confirm!
 
 # Create an example zone template
-zone_template = ZoneTemplate.find_by_name('Example Template') || ZoneTemplate.new(:name => 'Example Template')
+zone_template = ZoneTemplate.find_by(name: 'Example Template') || ZoneTemplate.new(:name => 'Example Template')
 zone_template.ttl = 86400
 zone_template.save!
 
@@ -80,7 +80,7 @@ RecordTemplate.create!({
 })
 
 # And add our example.com records
-domain = Domain.find_by_name('example.com') || Domain.new(:name => 'example.com')
+domain = Domain.find_by(name:'example.com') || Domain.new(:name => 'example.com')
 domain.ttl = 84600
 domain.primary_ns = 'ns1.example.com'
 domain.contact = 'admin@example.com'

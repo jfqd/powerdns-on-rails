@@ -48,8 +48,8 @@
 
 %p &nbsp;
 
-= link_to_function info_icon('table_add.png', 'new-step'), "displayRecordForm()"
-= link_to_function t(:label_macro_step_create_new), "displayRecordForm()"
+= link_to info_icon('table_add.png', 'new-step'), '#', onclick: "displayRecordForm(); return false;"
+= link_to t(:label_macro_step_create_new), '#', onclick: "displayRecordForm(); return false;"
 
 #record-form-div{ :style => 'display:none' }
   = form_for( [@macro, @macro.macro_steps.build], :remote => true, :html => { :id => 'record-form' } ) do |f|
@@ -81,7 +81,7 @@
           = f.text_field :content
           = info_icon( 'help.png', 'content-field' )
       %tr.all
-        %td.right= link_to_function t(:generic_cancel), "hideAll()"
+        %td.right= link_to t(:generic_cancel), '#', onclick: "hideAll(); return false;"
         %td= submit_tag t(:generic_save)
 
 :javascript
