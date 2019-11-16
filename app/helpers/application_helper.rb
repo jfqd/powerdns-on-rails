@@ -46,10 +46,11 @@ module ApplicationHelper
 
   # Convert ttl in seconds to a more human readable format
   def human_readable_ttl( seconds )
-    minute 	= 60
-    hour	= minute*60
-    day	= hour*24
-    week	= day*7
+    seconds = seconds.to_i
+    minute  = 60
+    hour    = minute*60
+    day     = hour*24
+    week    = day*7
 
     out = []
     if seconds >= week

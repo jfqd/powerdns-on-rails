@@ -28,7 +28,7 @@ source 'https://rubygems.org' do
   gem 'devise', '~> 4.7.1'
   gem "devise-encryptable"
   gem 'rabl'
-  gem 'state_machine'
+  gem 'state_machines'
 
   gem 'acts_as_list'
   gem 'dynamic_form'

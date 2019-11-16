@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   # Named scopes
   scope :active_owners, lambda { where(:state => :active, :admin => false) }
 
-  StateMachine::Machine.ignore_method_conflicts = true
+  StateMachines::Machine.ignore_method_conflicts = true
   state_machine :initial => :active do
     event :activate do
       transition :suspended => :active

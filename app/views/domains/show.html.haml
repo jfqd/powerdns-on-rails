@@ -89,7 +89,7 @@
           #note
             #note-text= @domain.notes
             %br
-            = link_to_function info_icon('note_edit.png', 'note-edit'), '#', onclick: "showNoteForm(); return false;"
+            = link_to info_icon('note_edit.png', 'note-edit'), '#', onclick: "showNoteForm(); return false;"
 
           #note-form{ :style => "display: none;" }
             = form_for( @domain, :url => update_note_domain_path( @domain ), :remote => true ) do |f|
@@ -124,8 +124,8 @@
 
 - unless @domain.slave?
   - if current_user || current_token.allow_new_records?
-    = link_to_function info_icon('database_add.png', '#', onclick: 'record-template-new'), "displayRecordForm(); return false;"
-    = link_to_function t(:label_domain_record_new), '#', onclick: "displayRecordForm(); return false;"
+    = link_to info_icon('database_add.png','record-template-new'), '#', onclick: "displayRecordForm(); return false;"
+    = link_to t(:label_domain_record_new), '#', onclick: "displayRecordForm(); return false;"
 
     #record-form-div{ :style => "display: none;" }
       = form_for( :record, :url => domain_records_path( @domain ), :remote => true, :html => { :id => 'record-form' } ) do |f|
@@ -167,7 +167,7 @@
           %tr.all
             %td &nbsp;
             %td
-              = link_to_function(t(:generic_cancel), '#', onclick: "hideRecordForm(); return false;")
+              = link_to(t(:generic_cancel), '#', onclick: "hideRecordForm(); return false;")
               = submit_tag(t(:generic_create))
 
 :javascript

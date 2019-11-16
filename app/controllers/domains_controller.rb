@@ -6,6 +6,10 @@ class DomainsController < InheritedResources::Base
   custom_actions :resource => :apply_macro
   respond_to :xml, :json, :js, :html
 
+  def domains_params
+    params.require(:domain).permit(:name, :type, :master, :ttl, :macro_id)
+  end
+
   protected
 
   def collection
@@ -14,7 +18,7 @@ class DomainsController < InheritedResources::Base
   end
 
   def resource
-    @domain = Domain.scoped.includes(:records)
+    @domain = Domain.all.includes(:records)
 
     if current_user
       @domain = @domain.user( current_user ).find( params[:id] )
@@ -26,6 +30,12 @@ class DomainsController < InheritedResources::Base
 
   def restrict_token_movements
     redirect_to domain_path( current_token.domain ) if current_token
+  end
+
+  private
+
+  def build_resource_params
+    [params.fetch(:domain, {}).permit(:name, :type, :master, :ttl, :macro_id)]
   end
 
   public
@@ -64,11 +74,11 @@ class DomainsController < InheritedResources::Base
 
   # Non-CRUD methods
   def update_note
-    resource.update_attribute( :notes, params[:domain][:notes] )
+    resource.update_attribute( :notes, domains_params[:notes] )
   end
 
   def change_owner
-    resource.update_attribute :user_id, params[:domain][:user_id]
+    resource.update_attribute :user_id, domains_params[:user_id]
 
     respond_to do |wants|
       wants.js
@@ -90,7 +100,7 @@ class DomainsController < InheritedResources::Base
       end
 
     else
-      @macro = Macro.user( current_user ).find( params[:macro_id] )
+      @macro = Macro.user( current_user ).find( domains_params[:macro_id] )
       @macro.apply_to( resource )
 
       respond_to do |format|

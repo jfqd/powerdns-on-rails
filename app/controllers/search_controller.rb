@@ -12,7 +12,7 @@ class SearchController < ApplicationController
       respond_to do |format|
         format.html do
           if @results.size == 1
-            redirect_to domain_path(@results.pop)
+            redirect_to domain_path(@results.size > 1 ? @results.pop : [@results.first] )
           end
         end
         format.json do

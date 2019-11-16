@@ -1,19 +1,19 @@
 PowerdnsOnRails::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions" }, :path => "sessions"
 
-  root :to => 'dashboard#index'
+  root :to => 'dashboard#index', via: :get
 
   resources :domains do
     member do
-      put :change_owner
-      get :apply_macro
-      post :apply_macro
-      put :update_note
+      patch :change_owner
+      get   :apply_macro
+      patch :apply_macro
+      patch :update_note
     end
 
     resources :records do
       member do
-        put :update_soa
+        patch :update_soa
       end
     end
   end

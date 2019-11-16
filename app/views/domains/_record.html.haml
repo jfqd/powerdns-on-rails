@@ -12,7 +12,7 @@
   %td{ :width => 39 }
     - unless record.domain.slave?
       - if current_user || current_token.can_change?( record )
-        = link_to_function info_icon('database_edit.png', "record-template-edit"), "#", onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;"
+        = link_to info_icon('database_edit.png', "record-template-edit"), "#", onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;"
       - if current_user || current_token.can_remove?( record )
         = link_to info_icon('database_delete.png', "record-template-delete"), domain_record_path( record.domain, record ), :method => :delete, :confirm => t(:confirm_domain_delte_record)
 
@@ -35,4 +35,4 @@
                 %td{ style: 'max-width:250px' }= f.text_field :content, :size => 15
                 %td{ :width => 39 }
                   = image_submit_tag "table_save.png", { :class => 'nb' }
-                  = link_to_function image_tag("cancel.png"),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;"
+                  = link_to image_tag("cancel.png"),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;"

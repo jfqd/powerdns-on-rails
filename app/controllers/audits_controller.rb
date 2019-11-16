@@ -7,7 +7,7 @@ class AuditsController < ApplicationController
   end
 
   def index
-    @audits = Audit.where(:order => "created_at desc", :limit => 50)
+    @audits = Audit.all(:order => "created_at desc", :limit => 50)
   end
 
   # Retrieve the audit details for a domain

@@ -8,6 +8,14 @@ class RecordsController < InheritedResources::Base
   rescue_from AuthToken::Denied do
     render :text => t(:message_token_not_authorized), :status => 403
   end
+  
+  def records_params
+    params.require(:record).permit(:shortname, :ttl, :content, :domain, :id)
+  end
+
+  def soa_params
+    params.require(:soa).permit(:primary_ns, :contact, :refresh, :retry, :expire, :minimum)
+  end
 
   protected
 
@@ -36,11 +44,17 @@ class RecordsController < InheritedResources::Base
     render :text => t(:message_token_not_authorized), :status => 403
     return false
   end
+  
+  private
+
+  def build_resource_params
+    [params.fetch(:record, {}).permit(:shortname, :ttl, :content, :domain, :id)]
+  end
 
   public
 
   def create
-    @record = parent.send( "#{params[:record][:type].downcase}_records".to_sym ).new( params[:record] )
+    @record = parent.send( "#{records_params[:type].downcase}_records".to_sym ).new( params[:record] )
 
     if current_token && !current_token.allow_new_records? &&
         !current_token.can_add?( @record )
@@ -83,7 +97,7 @@ class RecordsController < InheritedResources::Base
   # Non-CRUD methods
   def update_soa
     @domain = parent
-    @domain.soa_record.update_attributes( params[:soa] )
+    @domain.soa_record.update_attributes( soa_params )
   end
 
 end
