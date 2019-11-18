@@ -55,7 +55,8 @@ class SOA < Record
     reload_without_content
     update_convenience_accessors
   end
-  alias_method_chain :reload, :content
+  alias_method :reload_without_content, :reload
+  alias_method :reload, :reload_with_content
 
   # Updates the serial number to the next logical one. Format of the generated
   # serial is YYYYMMDDNN, where NN is the number of the change for the day.

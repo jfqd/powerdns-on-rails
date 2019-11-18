@@ -35,7 +35,8 @@ class ZoneTemplate < ActiveRecord::Base
 
       records # give back
     end
-    alias_method_chain :find, :validations
+    alias_method :find_without_validations, :find
+    alias_method :find, :find_with_validations
   end
 
   # Build a new zone using +self+ as a template. +domain+ should be valid domain

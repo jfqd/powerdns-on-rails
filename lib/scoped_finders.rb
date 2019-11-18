@@ -11,8 +11,10 @@ module ScopedFinders
       extend SingletonMethods
 
       class << self
-        alias_method_chain :find, :scope
-        alias_method_chain :paginate, :scope
+        alias_method :find_without_scope, :find
+        alias_method :find, :find_with_scope
+        alias_method :paginate_without_scope, :paginate
+        alias_method :paginate, :paginate_with_scope
       end
 
     end
