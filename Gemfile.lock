@@ -318,6 +318,7 @@ DEPENDENCIES
   mysql2!
   rabl!
   rails (~> 4.2.11.1)!
+  rails-observers!
   request_store!
   rspec-rails!
   rundeck-ruby-client (~> 0.1.2)!

@@ -2,6 +2,7 @@ source 'https://rubygems.org' do
 
   gem "dotenv"
   gem 'rails', '~> 4.2.11.1'
+  gem 'rails-observers'
 
   group :assets do
     gem 'sass-rails', '~> 4.0.5'
