@@ -12,7 +12,7 @@
 
   - @audits.each do |audit|
     %tr{:class => cycle(:even, :odd)}
-      %td= link_to audit.id
+      %td= link_to audit.id, '#'
       %td= l audit.created_at, :format => :short
       %td
         - if audit.user
@@ -26,7 +26,7 @@
       %td
         = audit.revision.name.downcase
       %td
-        = link_to t(:details)
+        = link_to t(:details), '#'
       -#%td
         = audit.changes["name"]
         = audit.changes["type"]
