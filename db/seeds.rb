@@ -9,12 +9,12 @@
 # Create our admin user
 user = User.find_by(email:'admin@example.com') || User.new(:email => 'admin@example.com')
 user.login = 'admin' # Not used anymore
-user.password = 'secret'
-user.password_confirmation = 'secret'
+user.password = 'secret12345678'
+user.password_confirmation = 'secret12345678'
 user.admin = true
 user.confirmed_at = Time.zone.now
 user.save!
-user.confirm!
+user.confirm
 
 # Create an example zone template
 zone_template = ZoneTemplate.find_by(name: 'Example Template') || ZoneTemplate.new(:name => 'Example Template')
