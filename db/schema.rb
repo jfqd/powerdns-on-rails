@@ -9,205 +9,214 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20190606080539) do
+ActiveRecord::Schema.define(version: 20191116173601) do
 
-  create_table "audits", :force => true do |t|
-    t.integer  "auditable_id"
-    t.string   "auditable_type"
-    t.integer  "associated_id"
-    t.string   "associated_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "username"
-    t.string   "action"
-    t.text     "audited_changes"
-    t.integer  "version",         :default => 0
+  create_table "audits", force: :cascade do |t|
+    t.integer  "auditable_id",    limit: 4
+    t.string   "auditable_type",  limit: 255
+    t.integer  "associated_id",   limit: 4
+    t.string   "associated_type", limit: 255
+    t.integer  "user_id",         limit: 4
+    t.string   "user_type",       limit: 255
+    t.string   "username",        limit: 255
+    t.string   "action",          limit: 255
+    t.text     "audited_changes", limit: 65535
+    t.integer  "version",         limit: 4,     default: 0
     t.datetime "created_at"
-    t.string   "comment"
-    t.string   "remote_address"
+    t.string   "comment",         limit: 255
+    t.string   "remote_address",  limit: 255
+    t.string   "request_uuid",    limit: 255
   end
 
-  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
-  add_index "audits", ["associated_id", "associated_type"], :name => "auditable_parent_index"
-  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
-  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
-  add_index "audits", ["user_id", "user_type"], :name => "user_index"
+  add_index "audits", ["associated_id", "associated_type"], name: "associated_index", using: :btree
+  add_index "audits", ["associated_id", "associated_type"], name: "auditable_parent_index", using: :btree
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
+  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
-  create_table "auth_tokens", :force => true do |t|
-    t.integer  "domain_id"
-    t.integer  "user_id"
-    t.string   "token",       :default => "", :null => false
-    t.text     "permissions",                 :null => false
+  create_table "auth_tokens", force: :cascade do |t|
+    t.integer  "domain_id",   limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "token",       limit: 255,   null: false
+    t.text     "permissions", limit: 65535, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "expires_at",                  :null => false
+    t.datetime "expires_at",                null: false
   end
 
-  create_table "comments", :force => true do |t|
-    t.integer  "domain_id"
-    t.string   "name"
-    t.string   "type"
-    t.integer  "modified_at"
-    t.string   "account"
-    t.text     "comment",     :limit => 16777215
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+  create_table "comments", force: :cascade do |t|
+    t.integer  "domain_id",   limit: 4
+    t.string   "name",        limit: 255
+    t.string   "type",        limit: 255
+    t.integer  "modified_at", limit: 4
+    t.string   "account",     limit: 255
+    t.text     "comment",     limit: 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "comments", ["domain_id", "modified_at"], :name => "index_comments_on_domain_id_and_modified_at"
-  add_index "comments", ["domain_id"], :name => "index_comments_on_domain_id"
-  add_index "comments", ["name", "type"], :name => "index_comments_on_name_and_type"
+  add_index "comments", ["domain_id", "modified_at"], name: "index_comments_on_domain_id_and_modified_at", using: :btree
+  add_index "comments", ["domain_id"], name: "index_comments_on_domain_id", using: :btree
+  add_index "comments", ["name", "type"], name: "index_comments_on_name_and_type", using: :btree
 
-  create_table "cryptokeys", :force => true do |t|
-    t.integer "domain_id"
-    t.integer "flags"
-    t.boolean "active"
-    t.text    "content"
+  create_table "cryptokeys", force: :cascade do |t|
+    t.integer  "domain_id",  limit: 4
+    t.integer  "flags",      limit: 4
+    t.boolean  "active"
+    t.text     "content",    limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "cryptokeys", ["domain_id"], :name => "index_cryptokeys_on_domain_id"
+  add_index "cryptokeys", ["domain_id"], name: "index_cryptokeys_on_domain_id", using: :btree
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   limit: 4,     default: 0, null: false
+    t.integer  "attempts",   limit: 4,     default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
+    t.string   "locked_by",  limit: 255
+    t.string   "queue",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "domainmetadata", :force => true do |t|
-    t.integer "domain_id"
-    t.string  "kind"
-    t.text    "content"
-  end
-
-  add_index "domainmetadata", ["domain_id"], :name => "index_domainmetadata_on_domain_id"
-
-  create_table "domains", :force => true do |t|
-    t.string   "name"
-    t.string   "master"
-    t.integer  "last_check"
-    t.string   "type",            :default => "NATIVE"
-    t.integer  "notified_serial"
-    t.string   "account"
-    t.integer  "ttl",             :default => 86400
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.text     "notes"
-  end
-
-  add_index "domains", ["name"], :name => "index_domains_on_name"
-
-  create_table "macro_steps", :force => true do |t|
-    t.integer  "macro_id"
-    t.string   "action"
-    t.string   "record_type"
-    t.string   "name"
-    t.string   "content",     :limit => 500
-    t.integer  "ttl"
-    t.integer  "prio"
-    t.integer  "position",                                     :null => false
-    t.boolean  "active",                     :default => true
-    t.string   "note"
+  create_table "domainmetadata", force: :cascade do |t|
+    t.integer  "domain_id",  limit: 4
+    t.string   "kind",       limit: 255
+    t.text     "content",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "macros", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "user_id"
-    t.boolean  "active",      :default => false
+  add_index "domainmetadata", ["domain_id"], name: "index_domainmetadata_on_domain_id", using: :btree
+
+  create_table "domains", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "master",          limit: 255
+    t.integer  "last_check",      limit: 4
+    t.string   "type",            limit: 255,   default: "NATIVE"
+    t.integer  "notified_serial", limit: 4
+    t.string   "account",         limit: 255
+    t.integer  "ttl",             limit: 4,     default: 86400
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",         limit: 4
+    t.text     "notes",           limit: 65535
+  end
+
+  add_index "domains", ["name"], name: "index_domains_on_name", using: :btree
+
+  create_table "macro_steps", force: :cascade do |t|
+    t.integer  "macro_id",    limit: 4
+    t.string   "action",      limit: 255
+    t.string   "record_type", limit: 255
+    t.string   "name",        limit: 255
+    t.string   "content",     limit: 500
+    t.integer  "ttl",         limit: 4
+    t.integer  "prio",        limit: 4
+    t.integer  "position",    limit: 4,                  null: false
+    t.boolean  "active",                  default: true
+    t.string   "note",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "record_templates", :force => true do |t|
-    t.integer  "zone_template_id"
-    t.string   "name"
-    t.string   "record_type",                     :default => "", :null => false
-    t.string   "content",          :limit => 500, :default => "", :null => false
-    t.integer  "ttl",                                             :null => false
-    t.integer  "prio"
+  create_table "macros", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.integer  "user_id",     limit: 4
+    t.boolean  "active",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "records", :force => true do |t|
-    t.integer  "domain_id",                                     :null => false
-    t.string   "name",                       :default => "",    :null => false
-    t.string   "type",                       :default => "",    :null => false
-    t.string   "content",     :limit => 500, :default => "",    :null => false
-    t.integer  "ttl",                                           :null => false
-    t.integer  "prio"
-    t.integer  "change_date"
+  create_table "record_templates", force: :cascade do |t|
+    t.integer  "zone_template_id", limit: 4
+    t.string   "name",             limit: 255
+    t.string   "record_type",      limit: 255, null: false
+    t.string   "content",          limit: 500, null: false
+    t.integer  "ttl",              limit: 4,   null: false
+    t.integer  "prio",             limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.boolean  "disabled",                   :default => false
-    t.boolean  "auth",                       :default => true
-    t.string   "ordername"
   end
 
-  add_index "records", ["domain_id", "ordername"], :name => "index_records_on_domain_id_and_ordername"
-  add_index "records", ["domain_id"], :name => "index_records_on_domain_id"
-  add_index "records", ["name", "type"], :name => "index_records_on_name_and_type"
-  add_index "records", ["name"], :name => "index_records_on_name"
-
-  create_table "supermasters", :force => true do |t|
-    t.string "ip",         :limit => 25
-    t.string "nameserver"
-    t.string "account",    :limit => 40
-  end
-
-  create_table "tsigkeys", :force => true do |t|
-    t.string "name"
-    t.string "algorithm"
-    t.string "secret"
-  end
-
-  add_index "tsigkeys", ["name", "algorithm"], :name => "index_tsigkeys_on_name_and_algorithm", :unique => true
-
-  create_table "users", :force => true do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "encrypted_password",        :limit => 128, :default => "",        :null => false
-    t.string   "password_salt",                            :default => "",        :null => false
+  create_table "records", force: :cascade do |t|
+    t.integer  "domain_id",   limit: 4,                   null: false
+    t.string   "name",        limit: 255,                 null: false
+    t.string   "type",        limit: 255,                 null: false
+    t.string   "content",     limit: 500,                 null: false
+    t.integer  "ttl",         limit: 4,                   null: false
+    t.integer  "prio",        limit: 4
+    t.integer  "change_date", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token"
+    t.boolean  "disabled",                default: false
+    t.boolean  "auth",                    default: true
+    t.string   "ordername",   limit: 255
+  end
+
+  add_index "records", ["domain_id", "ordername"], name: "index_records_on_domain_id_and_ordername", using: :btree
+  add_index "records", ["domain_id"], name: "index_records_on_domain_id", using: :btree
+  add_index "records", ["name", "type"], name: "index_records_on_name_and_type", using: :btree
+  add_index "records", ["name"], name: "index_records_on_name", using: :btree
+
+  create_table "supermasters", force: :cascade do |t|
+    t.string   "ip",         limit: 255
+    t.string   "nameserver", limit: 255
+    t.string   "account",    limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tsigkeys", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "algorithm",  limit: 255
+    t.string   "secret",     limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tsigkeys", ["name", "algorithm"], name: "index_tsigkeys_on_name_and_algorithm", unique: true, using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "login",                     limit: 255
+    t.string   "email",                     limit: 255
+    t.string   "encrypted_password",        limit: 128, default: "",        null: false
+    t.string   "password_salt",             limit: 255, default: "",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token",            limit: 255
     t.datetime "remember_token_expires_at"
-    t.string   "confirmation_token"
+    t.string   "confirmation_token",        limit: 255
     t.datetime "confirmed_at"
-    t.string   "state",                                    :default => "passive"
+    t.string   "state",                     limit: 255, default: "passive"
     t.datetime "deleted_at"
-    t.boolean  "admin",                                    :default => false
-    t.boolean  "auth_tokens",                              :default => false
+    t.boolean  "admin",                                 default: false
+    t.boolean  "auth_tokens",                           default: false
     t.datetime "confirmation_sent_at"
-    t.string   "reset_password_token"
+    t.string   "reset_password_token",      limit: 255
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
   end
 
-  create_table "zone_templates", :force => true do |t|
-    t.string   "name"
-    t.integer  "ttl",        :default => 86400
+  create_table "zone_templates", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "ttl",        limit: 4,   default: 86400
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "type",       :default => "NATIVE"
-    t.string   "master"
+    t.integer  "user_id",    limit: 4
+    t.string   "type",       limit: 255, default: "NATIVE"
+    t.string   "master",     limit: 255
   end
 
 end
