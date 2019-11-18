@@ -1,7 +1,7 @@
 PowerdnsOnRails::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions" }, :path => "sessions"
 
-  root :to => 'dashboard#index', via: :get
+  root :to => 'dashboard#index'
 
   resources :domains do
     member do
@@ -25,8 +25,8 @@ PowerdnsOnRails::Application.routes.draw do
     resources :macro_steps
   end
 
-  match '/audits(/:action(/:id))' => 'audits#index', :as => :audits, via: :get
-  match '/reports(/:action)' => 'reports#index', :as => :reports, via: :get
+  get '/audits(/:action(/:id))' => 'audits#index', :as => :audits
+  get '/reports(/:action)' => 'reports#index', :as => :reports
 
   resource :auth_token
   post '/token/:token' => 'sessions#token', :as => :token
