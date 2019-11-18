@@ -16,7 +16,7 @@ sudo apt-get install -yq build-essential ssl-cert \
   libsqlite3-dev libsqlite3-0 \
   libpq5 libpq-dev \
   libmysqlclient-dev \
-  ruby2.1 ruby2.1-dev
+  ruby2.5 ruby2.5-dev
 
 # Disable documentation generation for gems
 echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
