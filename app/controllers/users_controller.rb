@@ -13,12 +13,12 @@ class UsersController < InheritedResources::Base
   end
 
   def suspend
-    resource.suspend!
+    resource.suspend
     redirect_to users_path
   end
 
   def unsuspend
-    resource.unsuspend!
+    resource.unsuspend
     redirect_to users_path
   end
 

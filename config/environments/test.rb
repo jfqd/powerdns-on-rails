@@ -1,5 +1,6 @@
 PowerdnsOnRails::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
+  config.eager_load = false
 
   # The test environment is used exclusively to run your application's
   # test suite.  You never need to work with it otherwise.  Remember that
@@ -40,6 +41,8 @@ PowerdnsOnRails::Application.configure do
   config.assets.allow_debugging = true
 
   # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
+  
+  config.active_record.raise_in_transactional_callbacks = true
 end
