@@ -139,7 +139,7 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
-  config.secret_key = ENV['SECRET_KEY']
+  config.secret_key = ENV['SECRET_KEY'] || '33d89cd9cedf665e06e861933519a66a4dd70bf22ab06354a47fb293c3a75c74a162a0458fd5a917b05ebf368fd2d79c53da5ae6540ca904ef9684687726fcb3'
   
   # fix: Undefined local variable or method `unconfirmed_email' when registering users?
   # https://stackoverflow.com/questions/9049151/undefined-local-variable-or-method-unconfirmed-email-when-registering-users
