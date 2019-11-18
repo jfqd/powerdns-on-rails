@@ -1,10 +1,3 @@
-# Important update
-
-The current master branch of the PowerDNS on Rails project is in turmoil as we fast-forward the project into the future.
-The _very_ old previous release can be found in the 'rails-2.3.3' branch.
-
-Thanks for your support and understanding.
-
 # PowerDNS on Rails
 
 [![Build Status](https://travis-ci.org/kennethkalmer/powerdns-on-rails.png?branch=master)](https://travis-ci.org/kennethkalmer/powerdns-on-rails)
@@ -22,9 +15,9 @@ More information:
 
 _Instructions for running a demo version with Vagrant is provided further down._
 
-    $ git clone git://github.com/kennethkalmer/powerdns-on-rails.git
+    $ git clone git://github.com/jfqd/powerdns-on-rails.git
     $ cd powerdns-on-rails
-    $ gem install bundler -v1.0.22
+    $ gem install bundler
     $ bundle install --without development test
     $ bundle exec rake assets:precompile
 
@@ -81,7 +74,7 @@ You will need to have [virtualbox](https://www.virtualbox.org/) and [vagrant](ht
 
 Once you have Vagrant installed, you can follow these steps:
 
-    $ git clone git://github.com/kennethkalmer/powerdns-on-rails.git
+    $ git clone git://github.com/jfqd/powerdns-on-rails.git
     $ cd powerdns-on-rails
     $ vagrant up
 
