@@ -36,6 +36,8 @@ module ScopedFinders
       user = options.delete( :user )
 
       unless user.nil? || user.has_role?( 'admin' )
+        # TODO: switch to scoping in rails 4.2.x
+        # https://apidock.com/rails/ActiveRecord/Relation/scoping
         with_scope( :find => { :conditions => [ 'user_id = ?', user.id ] } ) do
           find_without_scope( *args << options )
         end
@@ -50,6 +52,8 @@ module ScopedFinders
       user = options.delete( :user )
 
       unless user.nil? || user.has_role?( 'admin' )
+        # TODO: switch to scoping in rails 4.2.x
+        # https://apidock.com/rails/ActiveRecord/Relation/scoping
         with_scope( :find => { :conditions => [ 'user_id = ?', user.id ] } ) do
           paginate_without_scope( *args << options, &block )
         end

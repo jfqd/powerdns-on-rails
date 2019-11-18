@@ -69,7 +69,7 @@ class Macro < ActiveRecord::Base
   def macro_change( domain, step )
     changed = false
 
-    domain.records.all( :conditions => { :type => step.record_type }).each do |record|
+    domain.records.where( :type => step.record_type ).each do |record|
       next unless record.shortname == step.name
 
       record.content = step.content.gsub('%ZONE%', domain.name)
@@ -90,7 +90,7 @@ class Macro < ActiveRecord::Base
 
   # Apply the remove macro to the domain
   def macro_remove( domain, step )
-    domain.records.all( :conditions => { :type => step.record_type }).each do |record|
+    domain.records.where( :type => step.record_type ).each do |record|
 
       # wild card or shortname match
       record.destroy if step.name == '*' || record.shortname == step.name

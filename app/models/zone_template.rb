@@ -27,15 +27,15 @@ class ZoneTemplate < ActiveRecord::Base
       valid_soa = options.delete( :require_soa ) || false
 
       # find as per usual
-      records = find_without_validations( *args << options )
+      records = self.all.where(id: args[0] )
 
       if valid_soa
         records.delete_if { |z| !z.has_soa? }
       end
 
-      records # give back
+      records.first
     end
-    alias_method :find_without_validations, :find
+    # alias_method :find_without_validations, :find
     alias_method :find, :find_with_validations
   end
 
@@ -80,7 +80,7 @@ class ZoneTemplate < ActiveRecord::Base
 
   # If the template has an SOA record, it can be used for building zones
   def has_soa?
-    record_templates.count( :conditions => "record_type LIKE 'SOA'" ) == 1
+    record_templates.where( "record_type LIKE 'SOA'" ).count == 1
   end
   # Are we a slave domain template
   def slave?

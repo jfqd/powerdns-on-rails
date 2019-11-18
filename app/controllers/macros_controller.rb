@@ -38,4 +38,10 @@ class MacrosController < InheritedResources::Base
   def macro_owner_from_params
     current_user.admin? ? User.where(id: params[:macro][:user_id]).first : current_user
   end
+  
+  private
+
+  def build_resource_params
+    [params.fetch(:macro, {}).permit(:name, :description, :user_id, :active)]
+  end
 end

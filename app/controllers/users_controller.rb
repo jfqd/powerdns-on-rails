@@ -23,7 +23,7 @@ class UsersController < InheritedResources::Base
   end
 
   def destroy
-    resource.delete!
+    resource.destroy!
     redirect_to users_path
   end
 

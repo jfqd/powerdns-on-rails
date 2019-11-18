@@ -42,7 +42,7 @@ class AuthToken < ActiveRecord::Base
   def set_defaults #:nodoc:
     # Ensure uniqueness
     t = self.class.token
-    while self.class.count( :conditions => ['token = ?', t] ) > 1
+    while self.class.where( 'token = ?', t ).count > 1
       t = self.class.token
     end
 

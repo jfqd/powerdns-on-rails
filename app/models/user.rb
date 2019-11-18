@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
   #attr_accessor :password
 
   #validates_presence_of     :login, :email
-  #validates_presence_of     :password,                   :if => :password_required?
-  #validates_presence_of     :password_confirmation,      :if => :password_required?
-  #validates_length_of       :password, :within => 4..40, :if => :password_required?
-  #validates_confirmation_of :password,                   :if => :password_required?
+  #validates_presence_of     :password,                     :if => :password_required?
+  #validates_presence_of     :password_confirmation,        :if => :password_required?
+  #validates_length_of       :password, :within => 12..256, :if => :password_required?
+  #validates_confirmation_of :password,                     :if => :password_required?
   #validates_length_of       :login,    :within => 3..40
   #validates_length_of       :email,    :within => 3..100
   #validates_uniqueness_of   :login, :email, :case_sensitive => false
@@ -119,9 +119,9 @@ class User < ActiveRecord::Base
     #  self.crypted_password = encrypt(password)
     #end
 
-    #def password_required?
-    #  crypted_password.nil? || !password.nil?
-    #end
+    def password_required?
+      new_record? && (self.encrypted_password.nil? || !password.nil?)
+    end
 
     #def do_delete
     #  self.deleted_at = Time.now.utc
@@ -136,10 +136,7 @@ class User < ActiveRecord::Base
 
     def persist_audits
       quoted_login = ActiveRecord::Base.connection.quote(self.login)
-      Audit.update_all(
-                       "username = #{quoted_login}",
-                       [ 'user_type = ? AND user_id = ?', self.class.name, self.id ]
-                       )
+      Audit.where( 'user_type = ? AND user_id = ?', self.class.name, self.id ).update_all(username: quoted_login)
     end
 
     def check_auth_tokens

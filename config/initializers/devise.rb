@@ -69,7 +69,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length to access our crown jewels
-  config.password_length = 12..200
+  config.password_length = 12..250
 
   # Regex to use to validate the email address
   # config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
@@ -140,4 +140,8 @@ Devise.setup do |config|
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
   config.secret_key = ENV['SECRET_KEY']
+  
+  # fix: Undefined local variable or method `unconfirmed_email' when registering users?
+  # https://stackoverflow.com/questions/9049151/undefined-local-variable-or-method-unconfirmed-email-when-registering-users
+  config.reconfirmable = false
 end
