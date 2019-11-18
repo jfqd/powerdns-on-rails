@@ -1,6 +1,6 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://gemsrv.qutic.net/
+  remote: https://qsm02-gemsrv.qutic.net/
   specs:
     RedCloth (4.3.2)
     actionmailer (4.2.11.1)
