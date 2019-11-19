@@ -13,16 +13,17 @@
   %td{ :colspan => 7 }
     = form_for( [@macro, macro_step], :remote => true ) do |f|
       %div[ macro_step, :error ]
-      %table.gridwide
-        %tr
-          %td{ :width => 50 }= f.text_field :position, :size => 3
-          %td{ :width => 90 }= f.select :action, MacroStep.valid_actions.map { |a| [ a.humanize, a ] }
-          %td{ :width => 80 }= f.select :record_type, Macro.record_types.map { |t| [t,t] }
-          %td{ :width => 220 }= f.text_field :name, :size => 15
-          %td{ :width => 30 }
-            - if macro_step.record_type == 'MX'
-              = f.text_field :prio, :size => 2
-          %td{ :width => 220 }= f.text_field :content, :size => 15
-          %td{ :width => 44 }
-            = image_submit_tag "table_save.png", { :class => 'nb' }
-            = link_to image_tag('cancel.png'), '#', onclick: "hideRecordTemplate(#{macro_step.id}); return false;"
+      .table-wrapper
+        %table.gridwide
+          %tr
+            %td{ :width => 50 }= f.text_field :position, :size => 3
+            %td{ :width => 90 }= f.select :action, MacroStep.valid_actions.map { |a| [ a.humanize, a ] }
+            %td{ :width => 80 }= f.select :record_type, Macro.record_types.map { |t| [t,t] }
+            %td{ :width => 220 }= f.text_field :name, :size => 15
+            %td{ :width => 30 }
+              - if macro_step.record_type == 'MX'
+                = f.text_field :prio, :size => 2
+            %td{ :width => 220 }= f.text_field :content, :size => 15
+            %td{ :width => 44 }
+              = image_submit_tag "table_save.png", { :class => 'nb' }
+              = link_to image_tag('cancel.png'), '#', onclick: "hideRecordTemplate(#{macro_step.id}); return false;"

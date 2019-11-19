@@ -3,6 +3,6 @@
   = t :label_user_has
   = t :label_lc_domain, :count => @user.domains.count
 
-#domains.padded
+#domains.padded.table-wrapper
   %table.gridwide
     = render :partial => '/domains/domain' , :collection => @user.domains

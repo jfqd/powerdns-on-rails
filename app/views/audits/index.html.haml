@@ -1,40 +1,41 @@
 %h1.underline= t :title_audit_search_logs
 
-%table.gridwide
-  %tr
-    %th Id
-    %th Date
-    %th User
-    %th Action
-    %th Type
-    %th Object
-    %th Name
+.table-wrapper
+  %table.gridwide
+    %tr
+      %th Id
+      %th Date
+      %th User
+      %th Action
+      %th Type
+      %th Object
+      %th Name
 
-  - @audits.each do |audit|
-    %tr{:class => cycle(:even, :odd)}
-      %td= link_to audit.id, '#'
-      %td= l audit.created_at, :format => :short
-      %td
-        - if audit.user
-          = link_to audit.user.login.capitalize, audit.user
-      %td
-        = audit.action.capitalize
-      %td
-        = audit.revision.type.capitalize
-      %td
-        = audit.auditable_type.capitalize
-      %td
-        = audit.revision.name.downcase
-      %td
-        = link_to t(:details), '#'
-      -#%td
-        = audit.changes["name"]
-        = audit.changes["type"]
-      -#
-        %td= audit.action
-        %td= audit.auditable_type
-        %td= audit.changes["name"]
-        %td= audit.changes["type"]
+    - @audits.each do |audit|
+      %tr{:class => cycle(:even, :odd)}
+        %td= link_to audit.id, '#'
+        %td= l audit.created_at, :format => :short
         %td
-          - if audit.auditable_parent
-            = audit.auditable_parent.name
+          - if audit.user
+            = link_to audit.user.login.capitalize, audit.user
+        %td
+          = audit.action.capitalize
+        %td
+          = audit.revision.type.capitalize
+        %td
+          = audit.auditable_type.capitalize
+        %td
+          = audit.revision.name.downcase
+        %td
+          = link_to t(:details), '#'
+        -#%td
+          = audit.changes["name"]
+          = audit.changes["type"]
+        -#
+          %td= audit.action
+          %td= audit.auditable_type
+          %td= audit.changes["name"]
+          %td= audit.changes["type"]
+          %td
+            - if audit.auditable_parent
+              = audit.auditable_parent.name

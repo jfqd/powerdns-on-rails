@@ -1,8 +1,9 @@
 %h1.underline
   =t :label_last_x_domains, :value => 5
 
-%table.gridwide
-  = render :partial => '/domains/domain', :collection => @latest_domains
+.table-wrapper
+  %table.gridwide
+    = render :partial => '/domains/domain', :collection => @latest_domains
 
 &nbsp;
 %h1.underline

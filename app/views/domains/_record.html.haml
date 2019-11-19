@@ -24,15 +24,15 @@
           %div[ record, :error ]
             %table.gridwide
               %tr
-                %td{ style: 'max-width:250px' }= f.text_field :shortname, :size => 15
-                %td{ :width => 50 }= f.text_field :ttl, :size => 3
+                %td{ :width => 30 }= f.text_field :shortname, size: 30
+                %td{ :width => 30 }= f.text_field :ttl, size: 6
                 %td{ :width => 30 }= record.type
                 %td{ :width => 30 }
                   - if record.supports_prio?
-                    = f.text_field :prio, :size => 2
+                    = f.text_field :prio, :size => 6
                   - else
                     &nbsp;
-                %td{ style: 'max-width:250px' }= f.text_field :content, :size => 15
+                %td{ :width => 50  }= f.text_field :content, size: 50
                 %td{ :width => 39 }
                   = image_submit_tag "table_save.png", { :class => 'nb' }
                   = link_to image_tag("cancel.png"),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;"

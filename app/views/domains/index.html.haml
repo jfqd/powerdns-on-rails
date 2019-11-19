@@ -13,14 +13,15 @@
 
 %h1.underline= t :title_domains_list
 
-%table.gridwide
-  %tr
-    %th= t(:header_domain)
-    %th= t(:header_type)
-    %th= t(:header_user)
-    %th= t(:header_actions)
+.table-wrapper
+  %table.gridwide
+    %tr
+      %th= t(:header_domain)
+      %th= t(:header_type)
+      %th= t(:header_user)
+      %th= t(:header_actions)
 
-  = render :partial => 'domain', :collection => @domains
+    = render :partial => 'domain', :collection => @domains
 
 #collection-info
   = t(:x_domains, :count => @domains.total_entries)

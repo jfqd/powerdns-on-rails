@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: #000;
     background-color: #F0F0F0;
 }
@@ -12,7 +12,7 @@ body {
 }
 #Header {
     height: 80px;
-    background-image: url(../images/top-background.png);
+    background-image: url(/images/top-background.png);
     background-repeat: repeat-x;
     padding-left: 20px;
 }
@@ -118,17 +118,17 @@ a img {
 .flash-info, .flash-notice {
     border: 1px solid #97FF97;
     background-color: #DFD;
-    background-image: url(../images/accept.png);
+    background-image: url(/images/accept.png);
 }
 .flash-error, .errorExplanation {
     border: 1px solid #F66;
     background-color: #FFC;
-    background-image: url(../images/exclamation.png);
+    background-image: url(/images/exclamation.png);
 }
 .flash-warning {
     border: 1px solid #FF6;
     background-color: #FFC;
-    background-image: url(../images/error.png);
+    background-image: url(/images/error.png);
 }
 .errorExplanation {
     margin: 5px 0;
@@ -260,267 +260,6 @@ div.humane.humane-show:hover { opacity: 0.2; }
   color                 : red;
   text-shadow           : 0 -1px 1px #f33;
 }
-/* Prototip.Styles */
-
-.prototip {
-	font: 11px Arial, Helvetica, sans-serif;
-	color: #000;
-}
-
-/* the default style */
-.prototip .default {
-	width: 250px;
-	color: #808080;
-}
-.prototip .default .toolbar {
-	background: #f1f1f1;
-	font-weight: bold;
-}
-.prototip .default .title { padding: 5px; }
-.prototip .default .content {
-	padding: 5px;
-	background: #fff;
-}
-
-/* basic */
-.prototip .basic {
-	width: 250px;
-	color: #808080;
-}
-.prototip .basic .toolbar {
-	background: #f1f1f1;
-	font-weight: bold;
-}
-.prototip .basic .title { padding: 5px; }
-.prototip .basic .content {
-	padding: 5px;
-	background: #fff;
-}
-
-/* basic */
-.prototip .hint {
-	width: 250px;
-	color: #313120;
-	background: #fff6aa;
-}
-.prototip .hint .toolbar {
-	background: #fdf1a0;
-	font-weight: bold;
-}
-.prototip .hint .title,
-.prototip .hint .content { padding: 5px; }
-
-/* protoblue */
-.prototip .protoblue {
-	width: 250px;
-	color: #fff;
-}
-.prototip .protoblue .toolbar {
-	background: #0d7cd0;
-	font-weight: bold;
-}
-.prototip .protoblue .title { padding: 5px; }
-.prototip .protoblue .content {
-	background: #1e90ff;
-	padding: 5px;
-}
-
-/* creamy */
-.prototip .creamy {
-	width: 250px;
-	color: #bb9c61;
-}
-.prototip .creamy .toolbar {
-	background: #f3edc2;
-	font-weight: bold;
-}
-.prototip .creamy .title { padding: 5px; }
-.prototip .creamy .content {
-	background: #f8f4ca;
-	padding: 5px;
-}
-
-/* darkgrey */
-.prototip .darkgrey {
-	width: 250px;
-	color: #fff;
-}
-.prototip .darkgrey .toolbar {
-	background: #5f5f5f;
-	font-weight: bold;
-}
-.prototip .darkgrey .title { padding: 5px; }
-.prototip .darkgrey .content {
-	background: #808080;
-	padding: 5px;
-}
-
-/* protogrey */
-.prototip .protogrey {
-	width: 250px;
-	color: #fff;
-	background: #fff;
-}
-.prototip .protogrey .toolbar {
-	background: #969c92;
-	font-weight: bold;
-}
-.prototip .protogrey .title { padding: 5px; }
-.prototip .protogrey .content {
-	color: #808080;
-	padding: 5px;
-}
-/* This is how to resize the close button for a style */
-.prototip .protogrey .toolbar .close {
-	width: 14px;
-	height: 14px;
-}
-
-/* loader gif */
-.prototipLoader {
-	position: absolute;
-	top: -1000px;
-	left: -1000px;
-	height: 14px;
-	width: 14px;
-	border: 1px solid #dddddd;
-	overflow: hidden;
-}
-
-
-/* Required for all tooltips.
-   Do not modify below this line! */
-.prototip {
-	position: absolute;
-	overflow: hidden;
-}
-.prototip .tooltip,
-.prototip .toolbar,
-.prototip .toolbar .title {	position: relative; }
-.prototip .content { clear: both; }
-.prototip .toolbar .close {
-	position: relative;
-	text-decoration: none;
-	float: right;
-	width: 19px;
-	height: 15px;
-	display: block;
-	line-height: 0;
-	font-size: 0px;
-	border: 0;
-	cursor: pointer;
-}
-.prototip .tooltip {
-	clear: both;
-	float: left; /* IE6 */
-}
-
-.prototip .borderLeftWrapper,
-.prototip .borderRightWrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 300px;
-	height: 20px;
-}
-
-.prototip .borderFrame {
-	height: 100%;
-	width: 100%;
-	float: left;
-	margin: 0;
-	padding: 0;
-	position: relative;
-}
-.prototip .borderTop,
-.prototip .borderBottom { overflow: hidden; } /* IE6 no radius */
-.prototip .borderRow {
-	list-style-type: none;
-	float: left;
-	width: 100%;
-	position: relative;
-	clear: both;
-	margin: 0;
-	padding: 0;
-}
-.prototip_CornerWrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	clear: both;
-}
-
-.prototip_Corner {
-	float: left;
-	position: relative;
-}
-.prototip canvas {
-	position: relative;
-	float: left;
-}
-.prototip_CornerTr,
-.prototip_CornerBr { float: right; }
-.prototip_BetweenCorners {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-	clear: both;
-}
-
-.prototip .borderMiddle {
-	position: relative;
-	float: left;
-}
-
-.prototip .borderCenter {
-	position: relative;
-	float: left;
-	height: 100%;
-}
-
-/* Stems */
-.prototip_StemWrapper {
-	position: relative;
-	width: 100%;
-	height: auto;
-	clear: both;
-}
-.prototip_StemBox {
-	float: left;
-	position: relative;
-}
-.prototip_Stem {
-	width: 100%;
-	position: absolute;
-	overflow: hidden;
-}
-
-.iframeShim { 
-	position: absolute;
-	border: 0;
-	margin: 0;	
-    padding: 0;
-    background: none;
-}
-
-/* Helpers */
-.prototip .clearfix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-.prototip .clearfix { display:inline-block; }
-/* IE Mac Hide \*/
-.prototip .clearfix { display:block; }
-/* IE Mac Hide End */
 /* TipTip CSS - Version 1.2 */
 
 #tiptip_holder {
@@ -634,6 +373,10 @@ div.humane.humane-show:hover { opacity: 0.2; }
 		border-top-color: rgba(20,20,20,0.92);
 	}
 }
+#Container {
+  width: 100%;
+}
+
 #Header .enviroment, #Footer {
   display: none;
 }
@@ -646,8 +389,22 @@ div.humane.humane-show:hover { opacity: 0.2; }
   color: #585858;
 }
 
+#search-bar {
+  display: inline;
+  float: right;
+  margin-right: 20px;
+}
+
+div.padded {
+  margin: 5px 0 20px 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
 table.gridwide {
-    width: 100%;
+  width: 100%;
 }
 
 table {
@@ -655,7 +412,7 @@ table {
 }
 
 table td, table th {
-  padding: 0.2em 0.5em;
+  padding: 0.5em;
 }
 
 table th {
@@ -663,55 +420,58 @@ table th {
   padding: 0.5em;
 }
 
+#users.padded table.gridwide tr:nth-child(even) {
+  background-color: #F0F0F0;
+}
+
 #collection-info {
-    float: right;
-    font-weight: bold;
-    padding: 4px 6px;
-    margin: 1em 0em;
+  float: right;
+  font-weight: bold;
+  padding: 4px 6px;
+  margin: 1em 0em;
 }
 
 div.pagination {
-    margin: 1em 0em;
-    overflow: hidden;
-    position: relative;
+  margin: 1em 0em;
+  overflow: hidden;
+  position: relative;
 }
 
 div.pagination span,
 div.pagination em,
 div.pagination a {
-    display: block;
-    float: left;
-    padding: 4px 6px;
-    border: 1px solid steelblue;
-    margin-right: 2px;
-    color: steelblue;
-    font-weight: bold;
-    text-decoration: none;
+  display: block;
+  float: left;
+  padding: 4px 6px;
+  border: 1px solid steelblue;
+  margin-right: 2px;
+  color: steelblue;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 div.pagination span.disabled {
-    color: silver;
-    border-color: silver;
+  color: silver;
+  border-color: silver;
 }
 
 div.pagination em.current {
-    float: left;
-    background: steelblue;
-    color: #fff;
+  float: left;
+  background: steelblue;
+  color: #fff;
 }
 
 div.pagination a {
 }
 
 .odd {
-    background: none;
+  background: none;
 }
 
 .even {
-    background-color: #F0F0F0;
+  background-color: #F0F0F0;
 }
 /* ...
-
 
 
 

@@ -7,14 +7,14 @@
 
 %h2.underline= t :title_users
 
-%table.gridwide
-  %tr
+.table-wrapper
+  %table.gridwide
     %tr
-      %th= t(:header_user)
-      %th= t(:header_email)
-      %th= t(:header_role)
-      %th= t(:header_state)
-      %th= t(:header_actions)
+      %tr
+        %th= t(:header_user)
+        %th= t(:header_email)
+        %th= t(:header_role)
+        %th= t(:header_state)
+        %th= t(:header_actions)
   
-  = render :partial => 'user', :collection => @users
-
+    = render :partial => 'user', :collection => @users

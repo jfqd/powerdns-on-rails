@@ -36,15 +36,16 @@
 
 %h1.underline=t :title_macro_steps
 
-%table#steps-table.gridwide
-  %tr
-    %td.small=t :label_macro_step_position
-    %td.small=t :label_macro_step_action
-    %td.small=t :label_macro_step_type
-    %td.small=t :label_macro_step_name
-    %td.small=t :label_macro_step_priority
-    %td.small=t :label_macro_step_content
-  = render :partial => @macro.macro_steps
+.table-wrapper
+  %table#steps-table.gridwide
+    %tr
+      %td.small=t :label_macro_step_position
+      %td.small=t :label_macro_step_action
+      %td.small=t :label_macro_step_type
+      %td.small=t :label_macro_step_name
+      %td.small=t :label_macro_step_priority
+      %td.small=t :label_macro_step_content
+    = render :partial => @macro.macro_steps
 
 %p &nbsp;
 

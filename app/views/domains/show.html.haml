@@ -37,7 +37,7 @@
 %h1.underline
   = @domain.name
 
-#domain-name.padded
+#domain-name.padded.table-wrapper
   %table.gridwide
     %tr
       %td{ :width => "100" }= t :label_domain_name
@@ -110,7 +110,7 @@
   - else
     = render :partial => '/domains/soa_record', :object => @domain.soa_record
 
-#domain-records.padded
+#domain-records.padded.table-wrapper
   %h2.underline= t :title_domain_rrs
   %table.gridwide#record-table
     %tr
