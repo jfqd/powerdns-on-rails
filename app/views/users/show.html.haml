@@ -1,5 +1,5 @@
 %h1.underline
-  = t(:title_user_detail_for, :user => @user.login)
+  = t(:title_user_detail_for, user: @user.login)
 
 %table.grid
   %tr
@@ -27,5 +27,5 @@
       = link_to t(:generic_remove), user_path( @user ), method: :delete, data: { confirm: t(:confirm_user_remove) }
       - unless @user.admin?
         &nbsp;&nbsp;&nbsp;
-        = link_to image_tag('help.png') , :controller => :reports , :action => :view , :id => @user
-        = link_to t(:label_user_detail) , :controller => :reports , :action => :view , :id => @user
+        = link_to image_tag('help.png') , controller: :reports , action: :view , id: @user
+        = link_to t(:label_user_detail) , controller: :reports , action: :view , id: @user
