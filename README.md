@@ -25,7 +25,7 @@ Review env.bak and modify as needed. By default it will use the MySQL connection
 
     $ cp env.bak .env
     $ bundle exec rake db:setup
-    $ bundle exec RAILS_SERVE_STATIC_FILES=true RAILS_ENV=stage rails s
+    $ RAILS_SERVE_STATIC_FILES=true RAILS_ENV=stage bundle exec rails s
 
 Point your browser to http://localhost:3000, and login with 'admin@example.com' and 'secret'.
 
