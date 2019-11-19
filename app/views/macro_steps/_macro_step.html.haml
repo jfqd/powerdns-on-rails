@@ -8,7 +8,7 @@
   %td{ :width => 230 }= macro_step.content
   %td{ :width => 40 }
     = link_to info_icon('table_edit.png', 'edit-step'), '#', onclick: "editRecordTemplate(#{macro_step.id}); return false;"
-    = link_to info_icon('table_delete.png', 'delete-step'), macro_macro_step_path(@macro, macro_step), :method => :delete, :confirm => t(:confirm_macro_step_delte)
+    = link_to info_icon('table_delete.png', 'delete-step'), macro_macro_step_path(@macro, macro_step), method: :delete, data: { confirm: t(:confirm_macro_step_delte) }
 %tr[ macro_step, :edit ]{ :style => 'display: none' }
   %td{ :colspan => 7 }
     = form_for( [@macro, macro_step], :remote => true ) do |f|

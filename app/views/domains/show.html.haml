@@ -27,7 +27,7 @@
     %br
     %br
     = t :warning_this_domain_has_owner
-    = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ),  :method => :delete, :confirm => t(:confirm_domain_delete, :domain => @domain.name)
+    = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, :domain => @domain.name) }
     %br
     or
     %br
@@ -51,7 +51,7 @@
           - if current_user.admin? && @domain.user
             = link_to info_icon('database_delete.png', 'delete-zone'), '#', onclick: "deleteDomain(); return false;" , :id => "delete-link-buffer"
           - elsif !current_token
-            = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ), :method => :delete, :confirm => t(:confirm_domain_delete, :domain => @domain.name)
+            = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, :domain => @domain.name) }
     %tr
       %td=t :label_domain_type
       %td= @domain.type.humanize

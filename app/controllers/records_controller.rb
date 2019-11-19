@@ -10,7 +10,7 @@ class RecordsController < InheritedResources::Base
   end
   
   def records_params
-    params.require(:record).permit(:shortname, :ttl, :content, :domain, :id)
+    params.require(:record).permit(:type, :name, :prio, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :shortname, :ttl, :content, :domain, :id)
   end
 
   def soa_params
@@ -48,13 +48,13 @@ class RecordsController < InheritedResources::Base
   private
 
   def build_resource_params
-    [params.fetch(:record, {}).permit(:shortname, :ttl, :content, :domain, :id)]
+    [params.fetch(:record, {}).permit(:type, :name, :prio, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :shortname, :ttl, :content, :domain, :id)]
   end
 
   public
 
   def create
-    @record = parent.send( "#{records_params[:type].downcase}_records".to_sym ).new( params[:record] )
+    @record = parent.send( "#{records_params[:type].downcase}_records".to_sym ).new( records_params )
 
     if current_token && !current_token.allow_new_records? &&
         !current_token.can_add?( @record )
