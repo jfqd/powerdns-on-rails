@@ -7,7 +7,7 @@ class DomainsController < InheritedResources::Base
   respond_to :xml, :json, :js, :html
 
   def domains_params
-    params.require(:domain).permit(:name, :type, :master, :ttl, :macro_id)
+    params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl, :macro_id)
   end
 
   protected
@@ -35,7 +35,7 @@ class DomainsController < InheritedResources::Base
   private
 
   def build_resource_params
-    [params.fetch(:domain, {}).permit(:name, :type, :master, :ttl, :macro_id)]
+    [params.fetch(:domain, {}).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl, :macro_id)]
   end
 
   public
@@ -49,15 +49,15 @@ class DomainsController < InheritedResources::Base
   end
 
   def create
-    @domain = Domain.new( params[:domain] )
+    @domain = Domain.new( domains_params )
 
     unless @domain.slave?
-      @zone_template = ZoneTemplate.find(params[:domain][:zone_template_id]) unless params[:domain][:zone_template_id].blank?
-      @zone_template ||= ZoneTemplate.find_by(name: params[:domain][:zone_template_name]) unless params[:domain][:zone_template_name].blank?
+      @zone_template = ZoneTemplate.find(domains_params[:zone_template_id]) unless domains_params[:zone_template_id].blank?
+      @zone_template ||= ZoneTemplate.find_by(name: params[:domain][:zone_template_name]) unless domains_params[:zone_template_name].blank?
 
       unless @zone_template.nil?
         begin
-          @domain = @zone_template.build( params[:domain][:name] )
+          @domain = @zone_template.build( domains_params[:name] )
         rescue ActiveRecord::RecordInvalid => e
           @domain.attach_errors(e)
 
@@ -78,7 +78,7 @@ class DomainsController < InheritedResources::Base
   end
 
   def change_owner
-    resource.update_attribute :user_id, domains_params[:user_id]
+    resource.update_attribute( :user_id, domains_params[:user_id] )
 
     respond_to do |wants|
       wants.js
