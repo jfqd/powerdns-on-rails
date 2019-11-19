@@ -11,12 +11,7 @@ source 'https://rubygems.org' do
   end
 
   platforms :ruby do
-    # on latest macos install it with:
-    # rvm @global do gem install mysql2 -v '0.3.19' -- \
-    #  --with-mysql-config=/usr/local/Cellar/mysql@5.6/5.6.40/bin/mysql_config \
-    #  --platform=ruby
     gem 'mysql2'
-    # gem 'activerecord-mysql2-adapter'
     # gem 'pg', '>= 0.9.0'
     # gem 'sqlite3'
   end
