@@ -3,7 +3,7 @@ PowerdnsOnRails::Application.routes.draw do
 
   root :to => 'dashboard#index'
 
-  resources :domains do
+  resources :domains, defaults: { format: [:json, :xml] } do
     member do
       patch :change_owner
       get   :apply_macro
@@ -11,7 +11,7 @@ PowerdnsOnRails::Application.routes.draw do
       patch :update_note
     end
 
-    resources :records do
+    resources :records, defaults: { format: [:json, :xml] } do
       member do
         patch :update_soa
       end
