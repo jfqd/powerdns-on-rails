@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery
+  protect_from_forgery unless: -> { request.format.json? || request.format.xml? }
 
   # All pages require a login...
   before_filter :authenticate_user!

@@ -7,6 +7,12 @@ class DomainsController < InheritedResources::Base
   respond_to :xml, :json, :js, :html
 
   def domains_params
+    # parsing xml params was removed from rails 4...
+    if request.format.xml?
+      xml    = Hash.from_xml(request.raw_post)
+      hash   = [params, xml]
+      params = hash.inject(&:merge)
+    end
     params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl, :macro_id)
   end
 
