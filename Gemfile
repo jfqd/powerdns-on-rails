@@ -20,7 +20,7 @@ source 'https://rubygems.org' do
   gem 'jquery-rails'
   gem 'will_paginate', '~> 3.2.1'
   gem "audited-activerecord", "~> 4.2.2"
-  gem 'inherited_resources'
+  gem 'inherited_resources', '1.9.0'
   gem 'devise', '~> 4.7.1'
   gem "devise-encryptable"
   gem 'rabl'
