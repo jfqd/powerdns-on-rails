@@ -10,12 +10,6 @@ class RecordsController < InheritedResources::Base
   end
   
   def records_params
-    # parsing xml params was removed from rails 4...
-    if request.format.xml?
-      xml    = Hash.from_xml(request.raw_post)
-      hash   = [params, xml]
-      params = hash.inject(&:merge)
-    end
     params.require(:record).permit(:type, :name, :prio, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :shortname, :ttl, :content, :domain, :id)
   end
 
@@ -54,12 +48,6 @@ class RecordsController < InheritedResources::Base
   private
 
   def build_resource_params
-    # parsing xml params was removed from rails 4...
-    if request.format.xml?
-      xml    = Hash.from_xml(request.raw_post)
-      hash   = [params, xml]
-      params = hash.inject(&:merge)
-    end
     [params.fetch(:record, {}).permit(:type, :name, :prio, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :shortname, :ttl, :content, :domain, :id)]
   end
 

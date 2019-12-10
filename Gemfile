@@ -21,6 +21,7 @@ source 'https://rubygems.org' do
   gem 'will_paginate', '~> 3.2.1'
   gem "audited-activerecord", "~> 4.2.2"
   gem 'inherited_resources', '1.9.0'
+  gem 'actionpack-xml_parser'
   gem 'devise', '~> 4.7.1'
   gem "devise-encryptable"
   gem 'rabl'
@@ -57,6 +58,6 @@ source 'https://rubygems.org' do
 
 end
 
-source 'https://qsm02-gemsrv.qutic.net/' do
+source 'https://gemsrv.qutic.net/' do
   gem 'rundeck-ruby-client', '~> 0.1.2'
 end
