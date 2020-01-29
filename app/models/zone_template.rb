@@ -62,7 +62,7 @@ class ZoneTemplate < ActiveRecord::Base
       domain.save!
 
       # get the templates
-      templates = record_templates.dup
+      templates = record_templates.dup.to_a
 
       Record.batch do
         # now build the remaining records according to the templates
