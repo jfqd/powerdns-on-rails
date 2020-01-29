@@ -55,7 +55,7 @@ class DomainsController < InheritedResources::Base
       @zone_template = ZoneTemplate.find(domains_params[:zone_template_id]) unless domains_params[:zone_template_id].blank?
       @zone_template ||= ZoneTemplate.find_by(name: params[:domain][:zone_template_name]) unless domains_params[:zone_template_name].blank?
 
-      unless @zone_template.nil?
+      if @zone_template.present?
         begin
           @domain = @zone_template.build( domains_params[:name] )
         rescue ActiveRecord::RecordInvalid => e
