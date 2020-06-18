@@ -46,5 +46,8 @@ module PowerdnsOnRails
     config.filter_parameters += [:password, :login, :email]
     
     config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
+
+    # In Rails 4.2+, set the queue_adapter in config/application.rb
+    config.active_job.queue_adapter = :delayed_job
   end
 end
