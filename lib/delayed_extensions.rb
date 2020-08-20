@@ -24,9 +24,9 @@ module DelayedExtensions
       unless self.class == SOA
         if RequestStore.store[:domain_lock] == 1 && self.class == Domain
           RequestStore.store[:domain_lock] += 1
-          self.class.delay(run_at: 2.minutes.from_now).send_axfr_notification
+          self.class.delay(run_at: 30.seconds.from_now).send_axfr_notification
         elsif RequestStore.store[:domain_lock].to_i == 0
-          self.class.delay(run_at: 2.minutes.from_now).send_axfr_notification
+          self.class.delay(run_at: 30.seconds.from_now).send_axfr_notification
         end
       end
     end
