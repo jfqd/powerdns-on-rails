@@ -29,7 +29,7 @@ class Record < ActiveRecord::Base
   attr_accessor :primary_ns, :contact, :refresh, :retry, :expire, :minimum
 
   before_validation :inherit_attributes_from_domain
-  before_save :update_change_date
+  # before_save :update_change_date
   after_save  :update_soa_serial
   before_destroy  :update_soa_serial
 
