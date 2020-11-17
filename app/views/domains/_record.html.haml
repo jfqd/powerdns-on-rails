@@ -1,7 +1,4 @@
-- css_class = cycle('even', 'odd')
-
-%tr[ record, :marker ]
-%tr[ record, :show ]{:class => css_class}
+%tr[ record, :show ]
   %td{ style: 'max-width:250px' }= record.shortname
   %td{ :width => 90 }
     = human_readable_ttl(record.ttl)
@@ -18,7 +15,7 @@
 
 - unless record.domain.slave?
   - if current_user || current_token.can_change?( record )
-    %tr[ record, :edit ]{ :style => "display: none;", :class => css_class}
+    %tr[ record, :edit ]{ :style => "display: none;" }
       %td{ :colspan => 7 }
         = form_for( record, :as => :record, :url => domain_record_path(record.domain, record ), :remote => true ) do |f|
           %div[ record, :error ]

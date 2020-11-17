@@ -424,6 +424,10 @@ table th {
   background-color: #F0F0F0;
 }
 
+table.gridwide tr:nth-child(even) {
+  background-color: #F0F0F0;
+}
+
 #collection-info {
   float: right;
   font-weight: bold;
