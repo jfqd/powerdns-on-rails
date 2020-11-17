@@ -174,12 +174,12 @@
 
 :javascript
   function editRecord(id, type) {
-    $('#show_' + type + '_' + id).hide();
-    $('#edit_' + type + '_' + id).show();
+    $('#show_' + type + '_' + id + " .show").hide();
+    $('#show_' + type + '_' + id + " .edit").show();
   }
   function hideRecord(id, type) {
-    $('#edit_' + type + '_' + id).hide();
-    $('#show_' + type + '_' + id).show();
+    $('#show_' + type + '_' + id + " .show").show();
+    $('#show_' + type + '_' + id + " .edit").hide();
   }
   function displayRecordForm() {
     $('#record-form-div').show();

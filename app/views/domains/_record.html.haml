@@ -1,35 +1,34 @@
 %tr[ record, :show ]
-  %td{ style: 'max-width:250px' }= record.shortname
-  %td{ :width => 90 }
+  %td.show{ style: 'max-width:250px' }= record.shortname
+  %td.show{ width: 90 }
     = human_readable_ttl(record.ttl)
     %small== (#{record.ttl})
-  %td{ :width => 30 }= record.type
-  %td{ :width => 30 }= record.prio
-  %td{ style: 'max-width:250px' }= record.content
-  %td{ :width => 39 }
+  %td.show{ width: 30 }= record.type
+  %td.show{ width: 30 }= record.prio
+  %td.show{ style: 'max-width:250px' }= record.content
+  %td.show{ width: 39 }
     - unless record.domain.slave?
       - if current_user || current_token.can_change?( record )
         = link_to info_icon('database_edit.png', "record-template-edit"), "#", onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;"
       - if current_user || current_token.can_remove?( record )
         = link_to info_icon('database_delete.png', "record-template-delete"), domain_record_path( record.domain, record ), method: :delete, data: { confirm: t(:confirm_domain_delte_record) }
 
-- unless record.domain.slave?
-  - if current_user || current_token.can_change?( record )
-    %tr[ record, :edit ]{ :style => "display: none;" }
-      %td{ :colspan => 7 }
-        = form_for( record, :as => :record, :url => domain_record_path(record.domain, record ), :remote => true ) do |f|
+  - unless record.domain.slave?
+    - if current_user || current_token.can_change?( record )
+      %td.edit{ colspan: 7, style: "display: none;" }
+        = form_for( record, as: :record, url: domain_record_path(record.domain, record ), remote: true ) do |f|
           %div[ record, :error ]
             %table.gridwide
               %tr
-                %td{ :width => 30 }= f.text_field :shortname, size: 30
-                %td{ :width => 30 }= f.text_field :ttl, size: 6
-                %td{ :width => 30 }= record.type
-                %td{ :width => 30 }
+                %td{ width: 30 }= f.text_field :shortname, size: 30
+                %td{ width: 30 }= f.text_field :ttl, size: 6
+                %td{ width: 30 }= record.type
+                %td{ width: 30 }
                   - if record.supports_prio?
                     = f.text_field :prio, :size => 6
                   - else
                     &nbsp;
-                %td{ :width => 50  }= f.text_field :content, size: 50
-                %td{ :width => 39 }
+                %td{ width: 50  }= f.text_field :content, size: 50
+                %td{ width: 39 }
                   = image_submit_tag "table_save.png", { :class => 'nb' }
                   = link_to image_tag("cancel.png"),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;"
