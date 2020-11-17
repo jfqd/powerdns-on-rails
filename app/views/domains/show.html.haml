@@ -112,15 +112,17 @@
 
 #domain-records.padded.table-wrapper
   %h2.underline= t :title_domain_rrs
-  %table.gridwide#record-table
-    %tr
-      %th.small= t :label_domain_record_host
-      %th.small= t :label_domain_record_ttl
-      %th.small= t :label_domain_record_type
-      %th.small= t :label_domain_record_priority
-      %th.small= t :label_domain_record_data
-      %th &nbsp;
-    = render :partial => 'record', :collection => @domain.records_without_soa
+  %table.gridwide.js-sort-table#record-table
+    %thead
+      %tr
+        %th.small= t :label_domain_record_host
+        %th.small= t :label_domain_record_ttl
+        %th.small= t :label_domain_record_type
+        %th.small= t :label_domain_record_priority
+        %th.small= t :label_domain_record_data
+        %th &nbsp;
+    %tbody
+      = render :partial => 'record', :collection => @domain.records_without_soa
 
 - unless @domain.slave?
   - if current_user || current_token.allow_new_records?
