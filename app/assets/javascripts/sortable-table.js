@@ -1,13 +1,13 @@
 /**
  * sort-table.js
- * A pure JavaScript (no dependencies) solution to make HTML
- *  Tables sortable
+ * A pure JavaScript (no dependencies) solution to make HTML Tables sortable
+ * version: 1.2.3
  *
  * Copyright (c) 2013 Tyler Uebele
  * Released under the MIT license.  See included LICENSE.txt
  *  or http://opensource.org/licenses/MIT
  *
- * latest version available at https://github.com/tyleruebele/sort-table
+ * latest version available at https://github.com/stationer/SortTable/
  */
 
 /**
@@ -266,15 +266,14 @@ sortTable.init = function() {
         for (var rowNum = 0; rowNum < THead.rows.length; rowNum++) {
             for (var cellNum = 0, colNum = 0; cellNum < THead.rows[rowNum].cells.length; cellNum++) {
                 // Skip headers marked "js-sort-none"
-                if (THead.rows[rowNum].cells[cellNum].className.match(/\bjs-sort-none\b/)) {
-                    continue;
+                if (!THead.rows[rowNum].cells[cellNum].className.match(/\bjs-sort-none\b/)) {
+                    // Define which column the header should invoke sorting for
+                    THead.rows[rowNum].cells[cellNum].setAttribute('data-js-sort-colNum', colNum);
+                    Handler = sortTable.getClickHandler(Tables[i], colNum);
+                    window.addEventListener
+                        ? THead.rows[rowNum].cells[cellNum].addEventListener('click', Handler)
+                        : window.attachEvent && THead.rows[rowNum].cells[cellNum].attachEvent('onclick', Handler);
                 }
-                // Define which column the header should invoke sorting for
-                THead.rows[rowNum].cells[cellNum].setAttribute('data-js-sort-colNum', colNum);
-                Handler = sortTable.getClickHandler(Tables[i], colNum);
-                window.addEventListener
-                    ? THead.rows[rowNum].cells[cellNum].addEventListener('click', Handler)
-                    : window.attachEvent && THead.rows[rowNum].cells[cellNum].attachEvent('onclick', Handler);
                 colNum += THead.rows[rowNum].cells[cellNum].colSpan;
             }
         }
