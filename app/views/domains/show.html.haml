@@ -115,7 +115,7 @@
   %table.gridwide.js-sort-table#record-table
     %thead
       %tr
-        %th.small= t :label_domain_record_host
+        %th{ class: "small #{ @domain.name.include?("in-addr.arpa") ? "js-sort-number" : "js-sort-string"}" }= t :label_domain_record_host
         %th.small= t :label_domain_record_ttl
         %th.small= t :label_domain_record_type
         %th.small= t :label_domain_record_priority
