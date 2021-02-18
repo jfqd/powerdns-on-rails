@@ -6,6 +6,6 @@
 #
 class CAA < Record
 
-  validates :content, format: { with: /\A0 issue ".*"\Z/, message: 'CAA records must be in the form: 0 issue "<ca>"' }
+  validates :content, format: { with: /\A0 (issue|issuewild|iodef) ".*"\Z/, message: 'CAA records must be in the form: 0 issue|issuewild|iode "<ca>"' }
 
 end
