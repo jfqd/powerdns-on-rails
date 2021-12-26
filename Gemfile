@@ -34,6 +34,9 @@ source 'https://rubygems.org' do
   gem 'delayed_job_active_record'
   gem 'daemons'
   gem 'request_store'
+  
+  # needet for ruby 2.7 support
+  gem 'bigdecimal', '1.4.2'
 
   group :development do
     gem 'test-unit', '~> 3.0'

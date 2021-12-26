@@ -50,6 +50,7 @@ GEM
       activerecord (~> 4.0)
       audited (= 4.2.2)
     bcrypt (3.1.16)
+    bigdecimal (1.4.2)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -330,6 +331,7 @@ DEPENDENCIES
   actionpack-xml_parser!
   acts_as_list!
   audited-activerecord (~> 4.2.2)!
+  bigdecimal (= 1.4.2)!
   coffee-rails!
   cucumber-rails!
   daemons!
