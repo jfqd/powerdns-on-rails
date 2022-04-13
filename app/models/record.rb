@@ -35,7 +35,7 @@ class Record < ActiveRecord::Base
   # Known record types
 
   class_attribute :record_types
-  self.record_types = ['A', 'AAAA', 'CNAME', 'LOC', 'MX', 'NS', 'PTR', 'SOA', 'SPF', 'SRV','SSHFP', 'TXT', 'CAA']
+  self.record_types = ['A', 'AAAA', 'CNAME', 'LOC', 'MX', 'NS', 'PTR', 'SOA', 'SPF', 'SRV','SSHFP', 'TXT', 'CAA', 'TLSA']
 
   class << self
 
