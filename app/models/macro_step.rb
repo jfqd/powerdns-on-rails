@@ -3,8 +3,8 @@ class MacroStep < ActiveRecord::Base
   @@valid_actions = %w{ create update remove create_update }
   cattr_reader :valid_actions
 
-  validates_presence_of :macro_id
-  validates_presence_of :content, :if => :content_required?
+  validates_presence_of  :macro_id
+  validates_presence_of  :content, :if => :content_required?
   validates_inclusion_of :action, :in => self.valid_actions
   validates_inclusion_of :record_type, :in => Macro.record_types
   validate :validate_macro_step

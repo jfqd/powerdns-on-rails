@@ -353,6 +353,7 @@ en:
   label_macro_step_action: "Action"
   label_macro_step_type: "Type"
   label_macro_step_name: "Name"
+  label_macro_step_ttl: "TTL"
   label_macro_step_priority: "Priority"
   label_macro_step_content: "Content"
   label_macro_step_create_new: "New Macro Step"
