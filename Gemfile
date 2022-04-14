@@ -1,7 +1,7 @@
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 4.2.11.1'
+  gem 'rails', '~> 4.2.11.3'
   gem 'rails-observers'
 
   group :assets do
