@@ -350,7 +350,7 @@ DEPENDENCIES
   mocha!
   mysql2!
   rabl!
-  rails (~> 4.2.11.1)!
+  rails (~> 4.2.11.3)!
   rails-observers!
   request_store!
   rspec-rails!
