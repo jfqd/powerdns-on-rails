@@ -62,5 +62,5 @@ source 'https://rubygems.org' do
 end
 
 source 'https://gemsrv.qutic.net/' do
-  gem 'rundeck-ruby-client', '~> 0.1.2'
+  gem 'rundeck-ruby-client'
 end
