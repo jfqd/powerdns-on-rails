@@ -4,7 +4,7 @@ class MacroStepsController < InheritedResources::Base
   respond_to :xml, :json, :js
 
   def macro_step_params
-    params.require(:macro_step).permit(:position, :action, :record_type, :name, :content)
+    params.require(:macro_step).permit(:position, :action, :record_type, :name, :ttl, :prio, :content)
   end
 
   protected
