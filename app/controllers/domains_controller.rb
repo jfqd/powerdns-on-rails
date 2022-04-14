@@ -7,7 +7,11 @@ class DomainsController < InheritedResources::Base
   respond_to :xml, :json, :js, :html
 
   def domains_params
-    params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl, :macro_id)
+    params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl)
+  end
+  
+  def apply_params
+    params.permit(:macro_id, :id)
   end
 
   protected
@@ -100,7 +104,7 @@ class DomainsController < InheritedResources::Base
       end
 
     else
-      @macro = Macro.user( current_user ).find( domains_params[:macro_id] )
+      @macro = Macro.user( current_user ).find( apply_params[:macro_id] )
       @macro.apply_to( resource )
 
       respond_to do |format|
