@@ -272,7 +272,7 @@ GEM
     rspec-support (3.11.0)
     ruby_parser (3.19.1)
       sexp_processor (~> 4.16)
-    rundeck-ruby-client (0.2.3)
+    rundeck-ruby-client (0.2.4)
       activesupport (>= 3.0)
       i18n (~> 0.6)
       json (~> 1.8)
