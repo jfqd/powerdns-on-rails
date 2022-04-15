@@ -77,4 +77,7 @@ PowerdnsOnRails::Application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # do not suppress warning
+  config.active_record.raise_in_transactional_callbacks = true
 end
