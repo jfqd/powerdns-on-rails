@@ -43,6 +43,10 @@ module ApplicationHelper
   def info_icon( image, dom_id )
     image_tag( image , :id => "help-icn-#{dom_id}", :class => 'help-icn', "data-help" => dom_id )
   end
+  
+  def font_icon(icon,dom_id,text,_class="")
+    fa_icon(icon, text: text, id: "help-icn-#{dom_id}", class: "fa-2x sub #{_class}", "data-help": dom_id)
+  end
 
   # Convert ttl in seconds to a more human readable format
   def human_readable_ttl( seconds )

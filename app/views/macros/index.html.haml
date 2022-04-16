@@ -4,14 +4,12 @@
 
 %ul.start
   %li
-    = link_to new_macro_path do
-      = info_icon('brick_add.png', 'new-macro')
-    = link_to t(:label_macro_add), new_macro_path
+    = link_to font_icon('plus-circle', 'new-macro', t(:label_macro_add)), new_macro_path, class: 'no-decoration'
 
 %h1.underline Macros
 
 - if @macros.size > 0
-  %table
+  %table.gridwide
     = render :partial => @macros
 - else
   %em= t :message_macro_not_defined

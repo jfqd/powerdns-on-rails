@@ -93,18 +93,26 @@ div.pagination em.current {
 div.pagination a {
 }
 
-.odd {
+/*.odd {
   background: none;
 }
 
 .even {
   background-color: #F0F0F0;
 }
-
+*/
 .truncate-text {
   max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+}
+
+.sub {
+  vertical-align: sub;
+}
+
+a.no-decoration {
+  text-decoration: none;
 }

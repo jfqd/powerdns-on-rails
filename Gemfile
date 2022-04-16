@@ -29,6 +29,7 @@ source 'https://rubygems.org' do
   gem 'rabl'
   gem 'state_machines'
   gem 'exception_notification'
+  gem "font-awesome-rails"
 
   gem 'acts_as_list'
   gem 'dynamic_form'
