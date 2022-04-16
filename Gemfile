@@ -1,13 +1,15 @@
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 4.2.11.3'
+  gem 'rails', '~> 5.1.7'
   gem 'rails-observers'
 
   group :assets do
-    gem 'sass-rails', '~> 4.0.5'
-    gem 'coffee-rails'
-    gem 'uglifier'
+    gem "sass-rails"
+    gem "coffee-rails"
+    gem "uglifier"
+    gem 'sprockets'
+    gem 'sprockets-rails', :require => 'sprockets/railtie'
   end
 
   platforms :ruby do
@@ -16,13 +18,13 @@ source 'https://rubygems.org' do
     # gem 'sqlite3'
   end
 
-  gem 'haml-rails'
+  gem 'haml-rails', "~> 2.0.0"
   gem 'jquery-rails'
-  gem 'will_paginate', '~> 3.2.1'
-  gem "audited-activerecord", "~> 4.2.2"
-  gem 'inherited_resources', '1.9.0'
+  gem 'will_paginate' #, '~> 3.2.1'
+  gem "audited"
+  gem 'inherited_resources', '1.11.0'
   gem 'actionpack-xml_parser'
-  gem 'devise', '~> 4.7.1'
+  gem 'devise' #, '~> 4.7.1'
   gem "devise-encryptable"
   gem 'rabl'
   gem 'state_machines'
@@ -31,8 +33,8 @@ source 'https://rubygems.org' do
   gem 'acts_as_list'
   gem 'dynamic_form'
 
-  gem 'delayed_job', '~>4.1.8'
-  gem 'delayed_job_active_record'
+  gem 'delayed_job', '~>4.1.10'
+  gem 'delayed_job_active_record', '~>4.1.7'
   gem 'daemons'
   gem 'request_store'
   

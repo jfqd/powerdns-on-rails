@@ -3,14 +3,6 @@ class TemplatesController < InheritedResources::Base
   defaults :resource_class => ZoneTemplate, :collection_name => 'zone_templates', :instance_name => 'zone_template'
   respond_to :html, :xml, :json
 
-  protected
-
-  def collection
-    @zone_templates = ZoneTemplate.user(current_user).all
-  end
-
-  public
-
   def zone_template_params
     params.require(:zone_template).permit!
   end
@@ -20,6 +12,12 @@ class TemplatesController < InheritedResources::Base
     @zone_template.user = current_user unless current_user.admin?
 
     create! { zone_template_path( @zone_template ) }
+  end
+
+  protected
+
+  def collection
+    @zone_templates = ZoneTemplate.user(current_user).all
   end
 
 end

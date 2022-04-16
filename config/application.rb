@@ -1,8 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
+#require_relative 'boot'
 require 'rails/all'
+require 'sprockets/railtie'
 
-require 'action_dispatch/xml_params_parser'
+# require 'action_dispatch/xml_params_parser'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -13,6 +15,9 @@ Dotenv.load ".env.#{ENV["RAILS_ENV"]}", '.env'
 
 module PowerdnsOnRails
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -45,7 +50,7 @@ module PowerdnsOnRails
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :login, :email]
     
-    config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
+    # config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
 
     # In Rails 4.2+, set the queue_adapter in config/application.rb
     config.active_job.queue_adapter = :delayed_job

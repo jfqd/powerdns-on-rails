@@ -1,4 +1,4 @@
-class MacroStep < ActiveRecord::Base
+class MacroStep < ApplicationRecord
 
   @@valid_actions = %w{ create update remove create_update }
   cattr_reader :valid_actions

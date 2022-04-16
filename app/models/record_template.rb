@@ -1,4 +1,4 @@
-class RecordTemplate < ActiveRecord::Base
+class RecordTemplate < ApplicationRecord
 
   belongs_to :zone_template
 

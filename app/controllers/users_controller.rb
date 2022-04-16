@@ -1,6 +1,6 @@
 class UsersController < InheritedResources::Base
 
-  before_filter do
+  before_action do
     unless current_user.admin?
       redirect_to root_url
     end
@@ -31,6 +31,8 @@ class UsersController < InheritedResources::Base
     resource.destroy
     redirect_to users_path
   end
+  
+  private
   
   def user_params
     params.require(:user).permit(:login, :email, :password, :password_confirmation, :admin, :auth_tokens)

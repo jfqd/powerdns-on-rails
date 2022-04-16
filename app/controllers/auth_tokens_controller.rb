@@ -1,6 +1,6 @@
 class AuthTokensController < ApplicationController
 
-  before_filter do
+  before_action do
     unless current_user.auth_tokens?
       redirect_to root_url
     end

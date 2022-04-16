@@ -7,7 +7,7 @@
 #
 # TODO: Document this
 #
-class AuthToken < ActiveRecord::Base
+class AuthToken < ApplicationRecord
 
   class Denied < ::Exception
   end

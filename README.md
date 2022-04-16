@@ -19,7 +19,7 @@ _Instructions for running a demo version with Vagrant is provided further down._
     $ cd powerdns-on-rails
     $ gem install bundler
     $ bundle install --without development test
-    $ bundle exec rake assets:precompile
+    $ bundle exec rails assets:precompile
 
 Review env.bak and modify as needed. By default it will use the MySQL connection settings.
 

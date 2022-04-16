@@ -1,4 +1,4 @@
-class ZoneTemplate < ActiveRecord::Base
+class ZoneTemplate < ApplicationRecord
 
   belongs_to :user
   has_many :record_templates

@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
 
-  before_filter do
+  before_action do
     unless current_user.admin?
       redirect_to root_url
     end

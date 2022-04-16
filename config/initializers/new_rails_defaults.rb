@@ -17,3 +17,10 @@ ActiveSupport.use_standard_json_time_format = true
 # Don't escape HTML entities in JSON, leave that for the #json_escape helper.
 # if you're including raw json in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
+
+# Make `form_with` generate non-remote forms.
+Rails.application.config.action_view.form_with_generates_remote_forms = false
+
+# Unknown asset fallback will return the path passed in when the given
+# asset is not present in the asset pipeline.
+# Rails.application.config.assets.unknown_asset_fallback = false

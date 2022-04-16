@@ -3,26 +3,6 @@ class MacroStepsController < InheritedResources::Base
   belongs_to :macro
   respond_to :xml, :json, :js
 
-  def macro_step_params
-    params.require(:macro_step).permit(:position, :action, :record_type, :name, :ttl, :prio, :content)
-  end
-
-  protected
-
-  def parent
-    Macro.user( current_user ).find( params[:macro_id] )
-  end
-
-  def collection
-    parent.macro_steps
-  end
-
-  def resource
-    collection.find( params[:id] )
-  end
-
-  public
-
   def create
     # Check for any previous macro steps
     if parent.macro_steps.any?
@@ -69,6 +49,26 @@ class MacroStepsController < InheritedResources::Base
 
     flash[:info] = t :message_macro_step_removed
     redirect_to macro_path( parent )
+  end
+
+  protected
+
+  def parent
+    Macro.user( current_user ).find( params[:macro_id] )
+  end
+
+  def collection
+    parent.macro_steps
+  end
+
+  def resource
+    collection.find( params[:id] )
+  end
+  
+  private
+  
+  def macro_step_params
+    params.require(:macro_step).permit(:position, :action, :record_type, :name, :ttl, :prio, :content)
   end
 
 end

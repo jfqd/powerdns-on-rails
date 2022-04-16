@@ -5,7 +5,7 @@
 # The parent class for all our DNS RR's. Used to apply global rules and logic
 # that can easily be applied to any DNS RR's
 #
-class Record < ActiveRecord::Base
+class Record < ApplicationRecord
   audited :associated_with => :domain, :allow_mass_assignment => true
   self.non_audited_columns.delete( self.inheritance_column ) # Audit the 'type' column
 
@@ -73,8 +73,9 @@ class Record < ActiveRecord::Base
   def to_xml_with_cleanup(options = {}, &block)
     to_xml_without_cleanup(options, &block)
   end
-  alias_method :to_xml_without_cleanup, :to_xml
-  alias_method :to_xml, :to_xml_with_cleanup
+  # TODO: find a fit for it
+  # alias_method :to_xml_without_cleanup, :to_xml
+  # alias_method :to_xml, :to_xml_with_cleanup
 
   # Pull in the name & TTL from the domain if missing
   def inherit_attributes_from_domain #:nodoc:

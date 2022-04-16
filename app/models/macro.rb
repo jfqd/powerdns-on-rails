@@ -20,7 +20,7 @@
 #
 # Steps are ordered and will be executed in that order.
 #
-class Macro < ActiveRecord::Base
+class Macro < ApplicationRecord
 
   validates_presence_of :name
   validates_uniqueness_of :name

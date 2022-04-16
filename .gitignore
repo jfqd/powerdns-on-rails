@@ -15,3 +15,7 @@ config/environments/stage.rb
 
 env.production
 assets/.sprockets*
+public/assets/.sprockets*
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

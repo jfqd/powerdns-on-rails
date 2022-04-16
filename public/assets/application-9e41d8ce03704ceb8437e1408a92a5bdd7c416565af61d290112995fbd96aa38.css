@@ -189,7 +189,6 @@ ul.start li {
     background-color: #F0F0F0;
 }
 /* recommended base settings */
-
 html, body { height: 100%; }
 .humane {
   filter                : progid:DXImageTransform.Microsoft.alpha(opacity=100);
@@ -477,7 +476,7 @@ div.pagination a {
 }
 
 .truncate-text {
-  max-width: 250px;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -489,4 +488,3 @@ div.pagination a {
 
 
 */
-

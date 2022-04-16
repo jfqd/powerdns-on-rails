@@ -9,7 +9,7 @@ require 'scoped_finders'
 # * It is the $ORIGIN off all its records
 # * It specifies a default $TTL
 #
-class Domain < ActiveRecord::Base
+class Domain < ApplicationRecord
   audited :allow_mass_assignment => true
   has_associated_audits
 
