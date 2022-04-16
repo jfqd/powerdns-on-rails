@@ -50,8 +50,10 @@ module PowerdnsOnRails
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :login, :email]
     
+    # https://github.com/rails/actionpack-xml_parser/pull/15
+    # do not need this any more!
     # config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
-
+    
     # In Rails 4.2+, set the queue_adapter in config/application.rb
     config.active_job.queue_adapter = :delayed_job
   end
