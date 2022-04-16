@@ -93,6 +93,9 @@ class SOA < Record
       update_serial
       save(validate: false)
     end
+    d = self.domain
+    d.notified_serial = self.serial
+    d.save(validate: false)
   end
 
   # Nicer representation of the domain as XML
