@@ -1,7 +1,7 @@
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 6.0.4.7'
+  gem 'rails', '~> 6.1.5'
   gem 'rails-observers'
 
   group :assets do
@@ -20,11 +20,11 @@ source 'https://rubygems.org' do
 
   gem 'haml-rails', "~> 2.0.0"
   gem 'jquery-rails'
-  gem 'will_paginate' #, '~> 3.2.1'
+  gem 'will_paginate'
   gem "audited"
-  gem 'inherited_resources', '1.11.0'
+  gem 'inherited_resources', '~> 1.13.1'
   gem 'actionpack-xml_parser'
-  gem 'devise' #, '~> 4.7.1'
+  gem 'devise'
   gem "devise-encryptable"
   gem 'rabl'
   gem 'state_machines'
@@ -50,7 +50,7 @@ source 'https://rubygems.org' do
   group :development, :test do
     gem 'therubyracer'
     gem "rspec-rails"
-    gem 'RedCloth', '>= 4.1.1'
+    gem 'RedCloth', '>= 4.3.2'
   end
 
   group :test do
