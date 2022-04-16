@@ -102,7 +102,7 @@ div.pagination a {
 }
 
 .truncate-text {
-  max-width: 250px;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
