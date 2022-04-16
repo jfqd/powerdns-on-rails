@@ -5,7 +5,7 @@
     %small== (#{record.ttl})
   %td.show{ width: 30 }= record.type
   %td.show{ width: 30 }= record.prio
-  %td.show{ style: 'max-width:250px' }= record.content
+  %td.show.truncate-text= record.content
   %td.show{ width: 39 }
     - unless record.domain.slave?
       - if current_user || current_token.can_change?( record )

@@ -100,3 +100,11 @@ div.pagination a {
 .even {
   background-color: #F0F0F0;
 }
+
+.truncate-text {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
