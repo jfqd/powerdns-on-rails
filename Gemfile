@@ -1,3 +1,8 @@
+ruby ">=2.7.5"
+
+# global source
+source "https://rubygems.org"
+
 source 'https://rubygems.org' do
 
   gem "dotenv"
@@ -45,7 +50,6 @@ source 'https://rubygems.org' do
   group :development do
     gem 'test-unit', '~> 3.0'
     gem 'debugger', :platform => :mri_19
-    #gem 'RedCloth', '>= 4.1.1'
   end
 
   group :development, :test do
