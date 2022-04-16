@@ -91,8 +91,11 @@ class Record < ActiveRecord::Base
 
   def update_soa_serial #:nodoc:
     unless self.type == 'SOA' || self.domain.slave?
-      self.domain.soa_record.update_serial! rescue nil
+      self.domain.soa_record.update_serial!
     end
+  rescue Exception => e
+    Rails.logger.warn("[Record#update_soa_serial] Error: #{e.message}")  
+    true
   end
 
   # By default records don't support priorities. Those who do can overwrite
