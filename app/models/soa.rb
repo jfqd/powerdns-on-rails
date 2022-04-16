@@ -24,8 +24,8 @@ class SOA < Record
   validates_format_of :contact, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :name, :presence => true, :hostname => true
 
-  before_validation :set_content
-  before_update :update_serial
+  before_save      :set_content
+  # before_update    :update_serial
   after_initialize :update_convenience_accessors
 
   # The portions of the +content+ column that make up our SOA fields
@@ -69,18 +69,16 @@ class SOA < Record
       if Record.batch_soa_updates.include?( self.id )
         return
       end
-
       Record.batch_soa_updates << self.id
     end
 
     return if self.content_changed?
 
     date_serial = Time.now.strftime( "%Y%m%d00" ).to_i
-
     self.serial = if self.serial.nil? || date_serial > self.serial
-        date_serial
+      date_serial
     else
-       self.serial + 1
+      self.serial + 1
     end
   end
 
@@ -89,11 +87,11 @@ class SOA < Record
     if respond_to?( :without_auditing )
       without_auditing do
         update_serial
-        save
+        save(validate: false)
       end
     else
       update_serial
-      save
+      save(validate: false)
     end
   end
 
