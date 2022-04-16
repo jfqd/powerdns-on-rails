@@ -26,6 +26,7 @@ source 'https://rubygems.org' do
   gem "devise-encryptable"
   gem 'rabl'
   gem 'state_machines'
+  gem 'exception_notification'
 
   gem 'acts_as_list'
   gem 'dynamic_form'
