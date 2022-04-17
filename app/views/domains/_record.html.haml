@@ -11,7 +11,7 @@
       - if current_user || current_token.can_change?( record )
         = link_to font_icon('pencil', 'record-template-edit'), '#', onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;", class: 'no-decoration', title: t(:label_domain_edit_record)
       - if current_user || current_token.can_remove?( record )
-        = link_to font_icon('trash', 'record-template-delete'), domain_record_path( record.domain, record ), method: :delete, data: { confirm: t(:confirm_domain_delte_record) }, class: 'no-decoration', title: t(:label_domain_edit_record)
+        = link_to font_icon('trash', 'record-template-delete'), domain_record_path( record.domain, record ), method: :delete, data: { confirm: t(:confirm_domain_delte_record) }, class: 'no-decoration', title: t(:label_domain_delete_record)
 
   - unless record.domain.slave?
     - if current_user || current_token.can_change?( record )
