@@ -1,7 +1,7 @@
 %tr
   %td= link_to zone_template.name, zone_template_path( zone_template )
   %td
-    = link_to info_icon('table_edit.png', 'edit-template'), edit_zone_template_path( zone_template )
-    = link_to info_icon('table_delete.png', 'delete-template'), zone_template_path( zone_template ), method: :delete, data: { confirm: t(:confirm_template_delete) }
+    = link_to font_icon('pencil', 'edit-template'), edit_zone_template_path(zone_template), class: 'no-decoration', title: t("title_template_editing.update")
+    = link_to font_icon('trash', 'delete-template'), zone_template_path(zone_template), method: :delete, data: { confirm: t(:confirm_template_delete) }, class: 'no-decoration', title: t(:generic_remove)
     - unless zone_template.has_soa?
       = info_icon('table_error.png', 'missing-soa')

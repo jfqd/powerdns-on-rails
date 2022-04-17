@@ -11,8 +11,7 @@
 %h1.underline
   = @macro.name
   &nbsp;
-  = link_to edit_macro_path( @macro ) do
-    = info_icon( 'brick_edit.png', 'edit-macro' )
+  = link_to font_icon('pencil', 'edit-macro'), edit_macro_path( @macro ), class: 'no-decoration', title: t(:title_macro_update)
 
 %table.grid
   %tr
@@ -50,8 +49,7 @@
 
 %p &nbsp;
 
-= link_to info_icon('table_add.png', 'new-step'), '#', onclick: "displayRecordForm(); return false;"
-= link_to t(:label_macro_step_create_new), '#', onclick: "displayRecordForm(); return false;"
+= link_to font_icon('plus-circle', 'new-step', t(:label_macro_step_create_new), 2, "sub"), '#', onclick: "displayRecordForm(); return false;", class: 'no-decoration'
 
 #record-form-div{ :style => 'display:none' }
   = form_for( [@macro, @macro.macro_steps.build], :remote => true, :html => { :id => 'record-form' } ) do |f|

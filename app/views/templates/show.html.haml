@@ -15,7 +15,7 @@
 %h1.underline
   = @zone_template.name
   &nbsp;
-  = link_to info_icon( 'database_edit.png', 'edit-template' ), edit_zone_template_path(@zone_template)
+  = link_to font_icon('pencil', 'edit-template'), edit_zone_template_path(@zone_template), class: 'no-decoration', title: t(:generic_change)
 
 %table.grid
   %tr
@@ -54,13 +54,12 @@
       %td.small= t :label_domain_record_type
       %td.small= t :label_domain_record_priority
       %td.small= t :label_domain_record_data
-      %td
+      %td &nbsp;
     = render :partial => "record_template", :collection => @zone_template.record_templates
 
 %p &nbsp;
 
-= link_to info_icon('table_add.png', 'new-record-template'), '#', onclick: "displayRecordForm(); return false;"
-= link_to t(:label_template_record_create_new), '#', onclick: "displayRecordForm(); return false;"
+= link_to font_icon('plus-circle', 'new-record-template', t(:label_template_record_create_new), 2, "sub"), '#', onclick: "displayRecordForm(); return false;", class: 'no-decoration'
 
 #record-form-div{ :style => 'display:none' }
   = form_for( RecordTemplate.new, :remote => true, :html => { :id => 'record-form' } ) do |f|

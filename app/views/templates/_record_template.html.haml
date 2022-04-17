@@ -4,10 +4,10 @@
   %td{ :width => 50 }= record_template.ttl
   %td{ :width => 30 }= record_template.record_type
   %td{ :width => 30 }= record_template.prio
-  %td{ style: 'max-width:250px' }= record_template.content unless record_template.soa?
+  %td.truncate-text= record_template.content unless record_template.soa?
   %td{ :width => 36 }
-    = link_to info_icon('table_edit.png', 'edit-record-template'), '#', onclick: "editRecordTemplate(#{record_template.id}); return false;"
-    = link_to info_icon('table_delete.png', 'delete-record-template'), record_template_path( record_template ), method: :delete, data: { confirm: t(:confirm_template_record_delete) }
+    = link_to font_icon('pencil', 'edit-record-template'), '#', onclick: "editRecordTemplate(#{record_template.id}); return false;", class: 'no-decoration', title: t(:title_macro_update)
+    = link_to font_icon('trash', 'delete-record-template'), record_template_path( record_template ), method: :delete, data: { confirm: t(:confirm_template_record_delete) }, class: 'no-decoration', title: t(:title_macro_update)
 - if record_template.soa?
   %tr[ record_template, 'show-soa' ]
     %td{ :colspan => 2 } &nbsp;
@@ -85,4 +85,4 @@
 
         %td.top{ :width => 39 }
           = image_submit_tag "table_save.png", { :class => 'nb' }
-          = link_to image_tag("cancel.png"), '#', onclick: "hideRecordTemplate(#{record_template.id}); return false;"
+          = link_to t(:generic_cancel), '#', onclick: "hideRecordTemplate(#{record_template.id}); return false;"

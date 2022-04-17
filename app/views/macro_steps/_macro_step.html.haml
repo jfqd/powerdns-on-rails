@@ -8,8 +8,8 @@
   %td{ width: 30 }= macro_step.prio
   %td{ width: 230 }= macro_step.content
   %td{ width: 40 }
-    = link_to info_icon('table_edit.png', 'edit-step'), '#', onclick: "editRecordTemplate(#{macro_step.id}); return false;"
-    = link_to info_icon('table_delete.png', 'delete-step'), macro_macro_step_path(@macro, macro_step), method: :delete, data: { confirm: t(:confirm_macro_step_delte) }
+    = link_to font_icon('pencil', 'edit-step'), '#', onclick: "editRecordTemplate(#{macro_step.id}); return false;", class: 'no-decoration', title: t(:title_macro_update)
+    = link_to font_icon('trash', 'delete-step'), macro_macro_step_path(@macro, macro_step), method: :delete, data: { confirm: t(:confirm_macro_step_delte) }, class: 'no-decoration', title: t(:title_macro_update)
 %tr[ macro_step, :edit ]{ style: 'display: none' }
   %td{ colspan: 8 }
     = form_for( [@macro, macro_step], :remote => true ) do |f|
@@ -28,4 +28,4 @@
             %td{ width: 220 }= f.text_field :content, size: 15
             %td{ width: 44 }
               = image_submit_tag "table_save.png", { class: 'nb' }
-              = link_to image_tag('cancel.png'), '#', onclick: "hideRecordTemplate(#{macro_step.id}); return false;"
+              = link_to font_icon('ban', 'cancel'), '#', onclick: "hideRecordTemplate(#{macro_step.id}); return false;", class: 'no-decoration', title: t(:generic_cancel)
