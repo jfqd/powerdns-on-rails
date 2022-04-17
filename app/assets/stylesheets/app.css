@@ -79,6 +79,12 @@ table.grid {
 table.gridwide {
     width: 100%;
 }
+a {
+  color: rgb(0, 0, 238);
+}
+table.gridwide a:visited {
+  color: rgb(0, 0, 238);
+}
 .small {
     font-size: 90%;
 }
