@@ -12,20 +12,20 @@
       %th Name
 
     - @audits.each do |audit|
-      %tr{:class => cycle(:even, :odd)}
+      %tr
         %td= link_to audit.id, '#'
         %td= l audit.created_at, :format => :short
         %td
           - if audit.user
             = link_to audit.user.login.capitalize, audit.user
         %td
-          = audit.action.capitalize
+          = audit.try(:action).try(:capitalize)
         %td
-          = audit.revision.type.capitalize
+          = audit.try(:revision).try(:type).try(:capitalize)
         %td
-          = audit.auditable_type.capitalize
+          = audit.try(:auditable_type).try(:capitalize)
         %td
-          = audit.revision.name.downcase
+          = audit.try(:revision).try(:name).try(:downcase)
         %td
           = link_to t(:details), '#'
         -#%td

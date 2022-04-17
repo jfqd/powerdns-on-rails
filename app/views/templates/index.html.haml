@@ -1,5 +1,3 @@
-%h1.underline Zone Templates
-
 %div{ :style => "display: none;" }
   #new-template= t :help_template_zone_new
   #edit-template= t :help_template_zone_edit
@@ -9,6 +7,8 @@
 %ul.start
   %li
     = link_to font_icon('plus-circle', 'new-template', t(:label_template_create_new)), new_zone_template_path, class: 'no-decoration'
+
+%h1.underline Zone Templates
 
 %table.gridwide
   = render :partial => 'zone_template', :collection => @zone_templates

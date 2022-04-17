@@ -97,7 +97,7 @@ describe User, "and audits" do
 
   it "should have username persisted in audits when removed" do
     admin = FactoryGirl.create(:admin)
-    Audit.as_user( admin ) do
+    Audited::Audit.as_user( admin ) do
       domain =FactoryGirl.create(:domain)
       audit = domain.audits.first
 

@@ -21,7 +21,7 @@ end
 describe AuditsHelper, "link_to_domain_audit" do
 
   it "should handle an existing domain & existing user" do
-    Audit.as_user( FactoryGirl.create(:admin) ) do
+    Audited::Audit.as_user( FactoryGirl.create(:admin) ) do
       domain = FactoryGirl.create(:domain)
       audit = domain.audits.first
 
@@ -32,7 +32,7 @@ describe AuditsHelper, "link_to_domain_audit" do
   end
 
   it "should handle existing domains & removed users" do
-    Audit.as_user('admin') do
+    Audited::Audit.as_user('admin') do
     audit = FactoryGirl.create(:domain).audits.first
 
       results = helper.link_to_domain_audit( audit )
@@ -42,7 +42,7 @@ describe AuditsHelper, "link_to_domain_audit" do
   end
 
   it "should handle removed domains & existing users" do
-    Audit.as_user( FactoryGirl.create(:admin) ) do
+    Audited::Audit.as_user( FactoryGirl.create(:admin) ) do
       domain = FactoryGirl.create(:domain)
       domain.destroy
       audit = domain.audits.last
@@ -54,7 +54,7 @@ describe AuditsHelper, "link_to_domain_audit" do
   end
 
   it "should handle removed domains & removed users" do
-    Audit.as_user('admin') do
+    Audited::Audit.as_user('admin') do
       domain = FactoryGirl.create(:domain)
       domain.destroy
       audit = domain.audits.last
@@ -70,7 +70,7 @@ end
 describe AuditsHelper, "link_to_record_audit" do
 
   it "should handle an existing record & existing user" do
-    Audit.as_user( FactoryGirl.create(:admin) ) do
+    Audited::Audit.as_user( FactoryGirl.create(:admin) ) do
       domain = FactoryGirl.create(:domain)
       record = FactoryGirl.create(:a, :domain => domain)
       audit = record.audits.first
@@ -81,7 +81,7 @@ describe AuditsHelper, "link_to_record_audit" do
   end
 
   it "should handle existing records & removed users" do
-    Audit.as_user( 'admin' ) do
+    Audited::Audit.as_user( 'admin' ) do
       domain = FactoryGirl.create(:domain)
       record = FactoryGirl.create(:a, :domain => domain)
       audit = record.audits.first
@@ -92,7 +92,7 @@ describe AuditsHelper, "link_to_record_audit" do
   end
 
   it "should handle removed records & existing users" do
-    Audit.as_user( FactoryGirl.create(:admin) ) do
+    Audited::Audit.as_user( FactoryGirl.create(:admin) ) do
       domain = FactoryGirl.create(:domain)
       record = FactoryGirl.create(:a, :domain => domain)
       record.destroy
@@ -104,7 +104,7 @@ describe AuditsHelper, "link_to_record_audit" do
   end
 
   it "should handle removed records & removed users" do
-    Audit.as_user( 'admin' ) do
+    Audited::Audit.as_user( 'admin' ) do
       domain = FactoryGirl.create(:domain)
       record = FactoryGirl.create(:a, :domain => domain)
       record.destroy
@@ -117,7 +117,7 @@ describe AuditsHelper, "link_to_record_audit" do
 
   it "should handle records without a 'type' key in the changes hash" do
     domain = FactoryGirl.create(:domain)
-    audit = Audit.new(
+    audit = Audited::Audit.new(
       :auditable => FactoryGirl.create(:a, :domain => domain),
       :associated => domain,
       :action => 'create',
@@ -131,7 +131,7 @@ describe AuditsHelper, "link_to_record_audit" do
   end
 
   it "should handle removed records without a 'type' key in the changes hash" do
-    audit = Audit.new(
+    audit = Audited::Audit.new(
       :auditable => nil,
       :associated => FactoryGirl.create(:domain),
       :action => 'destroy',
@@ -149,7 +149,7 @@ end
 describe AuditsHelper, "audit_user" do
 
   it "should display user logins if present" do
-    audit = Audit.new(
+    audit = Audited::Audit.new(
       :auditable => nil,
       :associated => FactoryGirl.create(:domain),
       :action => 'destroy',
@@ -162,7 +162,7 @@ describe AuditsHelper, "audit_user" do
   end
 
   it "should display usernames if present" do
-    audit = Audit.new(
+    audit = Audited::Audit.new(
       :auditable => nil,
       :associated => FactoryGirl.create(:domain),
       :action => 'destroy',
@@ -175,7 +175,7 @@ describe AuditsHelper, "audit_user" do
   end
 
   it "should not bork on missing user information" do
-    audit = Audit.new(
+    audit = Audited::Audit.new(
       :auditable => nil,
       :associated => FactoryGirl.create(:domain),
       :action => 'destroy',

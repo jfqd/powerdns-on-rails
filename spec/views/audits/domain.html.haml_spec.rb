@@ -17,7 +17,7 @@ describe "audits/domain.html.haml" do
     end
 
     it "should handle audit entries on the domain" do
-      audit = Audit.new(
+      audit = Audited::Audit.new(
         :auditable => @domain,
         :created_at => Time.now,
         :version => 1,
@@ -38,7 +38,7 @@ describe "audits/domain.html.haml" do
   context "and resource record audits" do
 
     before(:each) do
-      Audit.as_user( 'admin' ) do
+      Audited::Audit.as_user( 'admin' ) do
         @domain = FactoryGirl.create(:domain)
       end
     end

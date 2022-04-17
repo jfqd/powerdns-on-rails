@@ -136,7 +136,7 @@ class User < ApplicationRecord
 
     def persist_audits
       quoted_login = ActiveRecord::Base.connection.quote(self.login)
-      Audit.where( 'user_type = ? AND user_id = ?', self.class.name, self.id ).update_all(username: quoted_login)
+      Audited::Audit.where( 'user_type = ? AND user_id = ?', self.class.name, self.id ).update_all(username: quoted_login)
     end
 
     def check_auth_tokens
