@@ -2,8 +2,7 @@
 
 %ul.start
   %li
-    = link_to info_icon('user_add.png', 'new-user'), new_user_path
-    = link_to t(:label_user_create), new_user_path
+    = link_to font_icon('plus-circle', 'new-user', t(:label_user_create), 2, "sub"), new_user_path, class: 'no-decoration'
 
 %h2.underline= t :title_users
 

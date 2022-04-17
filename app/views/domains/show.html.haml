@@ -27,12 +27,12 @@
     %br
     %br
     = t :warning_this_domain_has_owner
-    = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, :domain => @domain.name) }
+    = link_to font_icon('trash', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, domain: @domain.name) }, class: 'no-decoration', title: t(:help_delete_zone)
     %br
     or
     %br
     = t :confirm_delete_this_domain
-    = link_to info_icon('cancel.png', 'delete-reset'), '#', onclick: "deleteDomain(); return false;"
+    = link_to font_icon('trash', 'delete-reset'), '#', onclick: "deleteDomain(); return false;", class: 'no-decoration', title: t(:help_delete_zone)
 
 %h1.underline
   = @domain.name
@@ -44,14 +44,14 @@
       %td= @domain.name
       %td{ :width => "100" }
         - if current_user
-          = link_to info_icon('table_edit.png', 'zone-edit'), edit_domain_path(@domain)
-          = link_to info_icon('report_magnify.png', 'audits'), audits_path(:action => :domain, :id => @domain)
+          = link_to font_icon('pencil', 'zone-edit'), edit_domain_path(@domain), class: 'no-decoration', title: t(:title_update_zone)
+          = link_to font_icon('eye', 'audits'), audits_path(action: :domain, id: @domain), class: 'no-decoration', title: t(:help_audits)
           - unless @domain.slave?
-            = link_to info_icon('brick_go.png', 'macro'), apply_macro_domain_path( @domain )
+            = link_to font_icon('list-alt', 'macro'), apply_macro_domain_path( @domain ), class: 'no-decoration', title: t(:help_macro)
           - if current_user.admin? && @domain.user
-            = link_to info_icon('database_delete.png', 'delete-zone'), '#', onclick: "deleteDomain(); return false;" , :id => "delete-link-buffer"
+            = link_to font_icon('trash', 'delete-zone'), '#', onclick: "deleteDomain(); return false;" , :id => "delete-link-buffer", class: 'no-decoration', title: t(:help_delete_zone)
           - elsif !current_token
-            = link_to info_icon('database_delete.png', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, :domain => @domain.name) }
+            = link_to font_icon('trash', 'delete-zone'), domain_path( @domain ), method: :delete, data: { confirm: t(:confirm_domain_delete, domain: @domain.name) }, class: 'no-decoration', title: t(:help_delete_zone)
     %tr
       %td=t :label_domain_type
       %td= @domain.type.humanize
@@ -82,14 +82,14 @@
             = form_for( @domain, :url => change_owner_domain_path( @domain ), :remote => true ) do |f|
               = f.collection_select "user_id", @users, :id, :login, :include_blank => true
               = submit_tag(t(:generic_save))
-        %td= link_to info_icon('user_edit.png', 'change-owner'), '#', onclick: "changeOwner(); return false;"
+        %td= link_to font_icon('user', 'change-owner'),'#', onclick: "changeOwner(); return false;", class: 'no-decoration', title: t(:help_change_owner)
       %tr
         %td{ :valign => 'top' }=t :label_domain_notes
         %td{ :colspan => 2 }
           #note
-            #note-text= @domain.notes
+            = link_to font_icon('sticky-note-o', 'note-owner'),'#', onclick: "showNoteForm(); return false;", class: 'no-decoration', title: t(:note_edit)
             %br
-            = link_to info_icon('note_edit.png', 'note-edit'), '#', onclick: "showNoteForm(); return false;"
+            #note-text= @domain.notes
 
           #note-form{ :style => "display: none;" }
             = form_for( @domain, :url => update_note_domain_path( @domain ), :remote => true ) do |f|
@@ -103,7 +103,7 @@
     = t :title_soa_record
     &nbsp;
     - if current_user
-      = link_to info_icon('database_edit.png', 'soa-record-edit'), '#', onclick: "showSOAEdit(); return false;"
+      = link_to font_icon('pencil', 'soa-record-edit'), '#', onclick: "showSOAEdit(); return false;", class: 'no-decoration', title: t(:help_soa_record_edit)
   - if @domain.soa_record.nil?
     %p
       %em= t :label_soa_record_yet_propagated_from_master
@@ -126,8 +126,7 @@
 
 - unless @domain.slave?
   - if current_user || current_token.allow_new_records?
-    = link_to info_icon('database_add.png','record-template-new'), '#', onclick: "displayRecordForm(); return false;"
-    = link_to t(:label_domain_record_new), '#', onclick: "displayRecordForm(); return false;"
+    = link_to font_icon('plus-circle', 'record-template-new', t(:label_domain_record_new), 2, "sub"), '#', onclick: "displayRecordForm(); return false;", class: 'no-decoration'
 
     #record-form-div{ :style => "display: none;" }
       = form_for( :record, :url => domain_records_path( @domain ), :remote => true, :html => { :id => 'record-form' } ) do |f|

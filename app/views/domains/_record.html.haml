@@ -9,9 +9,9 @@
   %td.show{ width: 39 }
     - unless record.domain.slave?
       - if current_user || current_token.can_change?( record )
-        = link_to info_icon('database_edit.png', "record-template-edit"), "#", onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;"
+        = link_to font_icon('pencil', 'record-template-edit'), '#', onclick: "editRecord(#{record.id}, '#{record.type.downcase}'); return false;", class: 'no-decoration', title: t(:label_domain_edit_record)
       - if current_user || current_token.can_remove?( record )
-        = link_to info_icon('database_delete.png', "record-template-delete"), domain_record_path( record.domain, record ), method: :delete, data: { confirm: t(:confirm_domain_delte_record) }
+        = link_to font_icon('trash', 'record-template-delete'), domain_record_path( record.domain, record ), method: :delete, data: { confirm: t(:confirm_domain_delte_record) }, class: 'no-decoration', title: t(:label_domain_edit_record)
 
   - unless record.domain.slave?
     - if current_user || current_token.can_change?( record )
@@ -30,5 +30,5 @@
                     &nbsp;
                 %td{ width: 50  }= f.text_field :content, size: 50
                 %td{ width: 39 }
-                  = image_submit_tag "table_save.png", { :class => 'nb' }
-                  = link_to image_tag("cancel.png"),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;"
+                  = submit_tag t(:generic_save), {class: 'nb'}
+                  = link_to font_icon('ban', 'record-template-delete'),'#', onclick: "hideRecord(#{record.id}, '#{record.type.downcase}'); return false;", class: 'no-decoration', title: t(:generic_cancel)
