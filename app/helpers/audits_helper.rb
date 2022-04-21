@@ -29,10 +29,10 @@ module AuditsHelper
         nil # strip out non-values
       else
         if v.is_a?( Array )
-          v = "From <em>#{v.shift}</em> to <em>#{v.shift}</em>"
+          v = "From <em>#{h(v.shift)}</em> to <em>#{h(v.shift)}</em>"
         end
 
-        "<em>#{k}</em>: #{v}"
+        "<em>#{h(k)}</em>: #{h(v)}"
       end
     end.compact.join('<br />')
   end
