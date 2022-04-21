@@ -20,10 +20,10 @@
   %tr
     %td &nbsp;
     %td
-      = link_to image_tag('user_edit.png'), edit_user_path( @user )
+      = link_to font_icon('pencil', 'user-edit'), edit_user_path( @user ), class: 'no-decoration'
       = link_to t(:generic_change), edit_user_path( @user )
       &nbsp;&nbsp;&nbsp;
-      = link_to image_tag('user_delete.png'), user_path( @user ), method: :delete, data: { confirm: t(:confirm_user_remove) }
+      = link_to font_icon('trash', 'user-delete'), user_path( @user ), method: :delete, data: { confirm: t(:confirm_user_remove) }
       = link_to t(:generic_remove), user_path( @user ), method: :delete, data: { confirm: t(:confirm_user_remove) }
       - unless @user.admin?
         &nbsp;&nbsp;&nbsp;

@@ -42,7 +42,7 @@
 - unless @zone_template.has_soa?
   &nbsp;
   #soa-warning.generic-warning
-    = image_tag('table_error.png')
+    = font_icon('exclamation-triangle', 'table-error')
     = t :message_template_cannot_use_no_soa
   &nbsp;
 
