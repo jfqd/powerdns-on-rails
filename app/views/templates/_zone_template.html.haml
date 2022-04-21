@@ -4,4 +4,4 @@
     = link_to font_icon('pencil', 'edit-template'), edit_zone_template_path(zone_template), class: 'no-decoration', title: t("title_template_editing.update")
     = link_to font_icon('trash', 'delete-template'), zone_template_path(zone_template), method: :delete, data: { confirm: t(:confirm_template_delete) }, class: 'no-decoration', title: t(:generic_remove)
     - unless zone_template.has_soa?
-      = info_icon('table_error.png', 'missing-soa')
+      = font_icon('exclamation-triangle', 'missing-soa')
