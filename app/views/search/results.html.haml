@@ -9,7 +9,7 @@
         %th= t(:header_domain)
         %th= t(:header_type)
         %th= t(:header_user)
-        %th= t(:header_actions)
+        %th.width100px= t(:header_actions)
       = render :partial => '/domains/domain', collection: @results
 
   = will_paginate @results

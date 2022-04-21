@@ -93,14 +93,6 @@ div.pagination em.current {
 div.pagination a {
 }
 
-/*.odd {
-  background: none;
-}
-
-.even {
-  background-color: #F0F0F0;
-}
-*/
 .truncate-text {
   max-width: 350px;
   white-space: nowrap;
@@ -115,4 +107,8 @@ div.pagination a {
 
 a.no-decoration {
   text-decoration: none;
+}
+
+.width100px {
+  width: 100px;
 }
