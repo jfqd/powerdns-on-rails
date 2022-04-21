@@ -46,7 +46,7 @@ class MacroStep < ApplicationRecord
       # Since we don't have a domain, blank name validations will
       # prevent pretty useful (and dangerous) macro steps from being
       # created. This check offsets that, but might be flawed.
-      next if k == :name && v == I18n.t('activerecord.errors.messages.blank')
+      next if k == :domain && v == I18n.t('activerecord.errors.messages.blank')
 
       self.errors.add( k, v )
     end unless record.valid?
