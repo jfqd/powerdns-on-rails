@@ -27,5 +27,5 @@
                 = f.text_field :prio, size: 2
             %td{ width: 220 }= f.text_field :content, size: 15
             %td{ width: 44 }
-              = image_submit_tag "table_save.png", { class: 'nb' }
+              = submit_tag t(:generic_save), {class: 'nb'}
               = link_to font_icon('ban', 'cancel'), '#', onclick: "hideRecordTemplate(#{macro_step.id}); return false;", class: 'no-decoration', title: t(:generic_cancel)

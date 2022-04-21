@@ -84,5 +84,5 @@
           %td{ :width => 250 }= f.text_field :content, :size => 15
 
         %td.top{ :width => 39 }
-          = image_submit_tag "table_save.png", { :class => 'nb' }
+          = submit_tag t(:generic_save), {class: 'nb'}
           = link_to t(:generic_cancel), '#', onclick: "hideRecordTemplate(#{record_template.id}); return false;"
