@@ -68,7 +68,7 @@ class MacroStepsController < InheritedResources::Base
   private
   
   def macro_step_params
-    params.require(:macro_step).permit(:position, :action, :record_type, :name, :ttl, :prio, :content)
+    params.require(:macro_step).permit(:macro_id, :position, :action, :record_type, :name, :ttl, :prio, :content)
   end
 
 end
