@@ -5,15 +5,15 @@ class MacroStepsController < InheritedResources::Base
 
   def create
     # Check for any previous macro steps
-    if parent.macro_steps.any?
+    position = if parent.macro_steps.any?
       # Check for the parameter
       unless macro_step_params[:position].blank?
-        position = macro_step_params.delete(:position)
+        macro_step_params.delete(:position)
       else
-        position = parent.macro_steps.last.position + 1
+        parent.macro_steps.size + 1
       end
     else
-      position = '1'
+      1
     end
 
     @macro_step = parent.macro_steps.create( macro_step_params )
