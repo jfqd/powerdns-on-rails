@@ -19,3 +19,5 @@ public/assets/.sprockets*
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
+
+/config/master.key
