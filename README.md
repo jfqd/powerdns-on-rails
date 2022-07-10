@@ -1,15 +1,6 @@
 # PowerDNS on Rails
 
-[![Build Status](https://travis-ci.org/kennethkalmer/powerdns-on-rails.png?branch=master)](https://travis-ci.org/kennethkalmer/powerdns-on-rails)
-[![Code Climate](https://codeclimate.com/github/kennethkalmer/powerdns-on-rails.png)](https://codeclimate.com/github/kennethkalmer/powerdns-on-rails)
-
 PowerDNS on Rails is a Ruby on Rails application made to manage [PowerDNS](https://www.powerdns.com/) installations using the generic MySQL/PostgreSQL backends.
-
-More information:
-
-* The README (this file)
-* [Home page](https://kennethkalmer.github.com/powerdns-on-rails)
-* [Bug tracker](https://github.com/kennethkalmer/powerdns-on-rails/issues)
 
 ## Quick Installation
 
