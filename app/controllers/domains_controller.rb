@@ -106,7 +106,7 @@ class DomainsController < InheritedResources::Base
   private
   
   def domains_params
-    params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl)
+    params.require(:domain).permit(:name, :zone_template_id, :type, :master, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :ttl, :user_id, :notes)
   end
   
   def apply_params
