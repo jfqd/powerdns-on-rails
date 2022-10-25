@@ -33,7 +33,7 @@ class RecordTemplatesController < ApplicationController
   private
 
   def record_template_params
-    params.require(:record_template).permit(:record_type, :name, :prio, :type, :content, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :master, :ttl, :macro_id)
+    params.require(:record_template).permit(:record_type, :name, :ttl, :prio, :type, :content, :primary_ns, :contact, :refresh, :retry, :expire, :minimum, :master, :macro_id)
   end
 
 end

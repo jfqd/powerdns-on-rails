@@ -97,7 +97,7 @@ class RecordTemplate < ApplicationRecord
       record = build
       record.errors.each do |k,v|
         # skip associations we don't have, validations we don't care about
-        next if k == :domain_id || k == :name || k == :contact
+        next if k == :domain_id || k == :domain || k == :name || k == :contact
 
         self.errors.add( k, v )
       end unless record.valid?
