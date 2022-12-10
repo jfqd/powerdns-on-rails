@@ -15,7 +15,7 @@ class Domain < ApplicationRecord
 
   include DelayedExtensions
 
-  belongs_to :user
+  belongs_to :user, required: false
 
   has_many :records, :dependent => :destroy
 
@@ -46,6 +46,7 @@ class Domain < ApplicationRecord
   # Disable single table inheritence (STI)
   self.inheritance_column = 'not_used_here'
 
+  # after_validation :after_validation_on_create, on: [ :create ]
   after_create :create_soa_record
 
   # Virtual attributes that ease new zone creation. If present, they'll be
@@ -112,7 +113,7 @@ class Domain < ApplicationRecord
   # Setup an SOA if we have the requirements
   def create_soa_record #:nodoc:
     return if self.slave?
-
+    
     soa = SOA.new( :domain => self )
     SOA_FIELDS.each do |f|
       soa.send( "#{f}=", send( f ) )
