@@ -24,7 +24,7 @@ class SOA < Record
   validates_format_of :contact, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :name, :presence => true, :hostname => true
 
-  before_save      :set_content
+  before_validation :set_content
   # before_update    :update_serial
   after_initialize :update_convenience_accessors
 
