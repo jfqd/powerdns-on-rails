@@ -21,6 +21,7 @@ module PowerdnsOnRails
     
     config.filter_parameters += [:password, :login, :email]
     
+    config.eager_load = true
     config.eager_load_paths << Rails.root.join("lib")
   end
 end
