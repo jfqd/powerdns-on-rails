@@ -6,7 +6,7 @@ source "https://rubygems.org"
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 6.1.5'
+  gem 'rails', '~> 7.0.0'
   gem 'rails-observers'
 
   group :assets do
