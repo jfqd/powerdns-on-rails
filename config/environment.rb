@@ -1,4 +1,5 @@
-require_relative 'application'
+# Load the Rails application.
+require_relative "application"
 
 require 'dotenv'
 # https://github.com/bkeepers/dotenv/issues/19
