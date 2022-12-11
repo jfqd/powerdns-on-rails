@@ -50,6 +50,9 @@ source 'https://rubygems.org' do
   gem "net-imap"
   gem "uri", "0.10.0"
   
+  # rails 7
+  gem 'uglifier'
+  
   # needet for ruby 2.7 support
   gem 'bigdecimal', '1.4.2'
 
