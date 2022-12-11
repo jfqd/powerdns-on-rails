@@ -234,6 +234,8 @@ GEM
     multi_test (1.1.0)
     mysql2 (0.5.4)
     naught (1.1.0)
+    net-http (0.3.1)
+      uri
     net-imap (0.3.2)
       date
       net-protocol
@@ -362,6 +364,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    uri (0.10.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     webrat (0.7.3)
@@ -405,6 +408,9 @@ DEPENDENCIES
   jquery-rails!
   mocha!
   mysql2!
+  net-http!
+  net-imap!
+  net-smtp!
   rabl!
   rails (~> 7.0.0)!
   rails-observers!
@@ -418,6 +424,7 @@ DEPENDENCIES
   test-unit (~> 3.0)!
   therubyracer!
   uglifier!
+  uri (= 0.10.0)!
   webrat!
   will_paginate!
 

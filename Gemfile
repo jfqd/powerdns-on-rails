@@ -44,6 +44,12 @@ source 'https://rubygems.org' do
   gem 'daemons'
   gem 'request_store'
   
+  # https://github.com/ruby/net-imap/issues/16
+  gem "net-http"
+  gem "net-smtp"
+  gem "net-imap"
+  gem "uri", "0.10.0"
+  
   # needet for ruby 2.7 support
   gem 'bigdecimal', '1.4.2'
 
