@@ -14,14 +14,13 @@ module PowerdnsOnRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    
     config.time_zone = "Berlin"
     
     config.encoding = "utf-8"
     
     config.filter_parameters += [:password, :login, :email]
     
-    config.eager_load = true
     config.eager_load_paths << Rails.root.join("lib")
   end
 end
