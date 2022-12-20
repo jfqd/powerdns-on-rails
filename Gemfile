@@ -49,9 +49,12 @@ source 'https://rubygems.org' do
   gem "net-smtp"
   gem "net-imap"
   gem "uri", "0.10.0"
+
+  gem "rails-html-sanitizer", "~> 1.4.4"
+  gem "loofah", "~> 2.19.1"
   
   # rails 7
-  gem 'uglifier'
+  # gem 'uglifier'
   
   # needet for ruby 2.7 support
   gem 'bigdecimal', '1.4.2'
