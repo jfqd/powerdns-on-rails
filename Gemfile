@@ -54,7 +54,7 @@ source 'https://rubygems.org' do
   gem "loofah", "~> 2.19.1"
   
   # rails 7
-  # gem 'uglifier'
+  gem 'uglifier'
   
   # needet for ruby 2.7 support
   gem 'bigdecimal', '1.4.2'
