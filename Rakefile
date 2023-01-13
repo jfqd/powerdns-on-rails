@@ -4,4 +4,9 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
+require 'dotenv'
+# https://github.com/bkeepers/dotenv/issues/19
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "production"
+Dotenv.load ".env.#{ENV["RAILS_ENV"]}", '.env'
+
 PowerdnsOnRails::Application.load_tasks
