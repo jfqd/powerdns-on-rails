@@ -48,7 +48,7 @@ source 'https://rubygems.org' do
   gem "net-http"
   gem "net-smtp"
   gem "net-imap"
-  gem "uri", "0.10.0"
+  gem "uri"
 
   gem "rails-html-sanitizer", "~> 1.4.4"
   gem "loofah", "~> 2.19.1"

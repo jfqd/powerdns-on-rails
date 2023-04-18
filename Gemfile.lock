@@ -289,7 +289,7 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     ref (2.0.0)
-    regexp_parser (2.7.0)
+    regexp_parser (2.8.0)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.1.0)
@@ -364,7 +364,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    uri (0.10.0)
+    uri (0.12.1)
     warden (1.2.9)
       rack (>= 2.0.9)
     webrat (0.7.3)
@@ -426,7 +426,7 @@ DEPENDENCIES
   test-unit (~> 3.0)!
   therubyracer!
   uglifier!
-  uri (= 0.10.0)!
+  uri!
   webrat!
   will_paginate!
 
