@@ -51,7 +51,7 @@ source 'https://rubygems.org' do
   gem "uri"
 
   gem "rails-html-sanitizer", "~> 1.4.4"
-  gem "loofah", "~> 2.19.1"
+  gem "loofah"
   
   # rails 7
   gem 'uglifier'
