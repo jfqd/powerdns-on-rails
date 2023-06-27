@@ -67,7 +67,7 @@ source 'https://rubygems.org' do
   group :development, :test do
     gem 'therubyracer'
     gem "rspec-rails"
-    gem 'RedCloth', '>= 4.3.2'
+    # gem 'RedCloth', '>= 4.3.2'
   end
 
   group :test do

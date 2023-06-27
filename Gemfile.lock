@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   remote: https://gemsrv.qutic.net/
   specs:
-    RedCloth (4.3.2)
     actioncable (7.0.5.1)
       actionpack (= 7.0.5.1)
       activesupport (= 7.0.5.1)
@@ -385,7 +384,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (>= 4.3.2)!
   actionpack-xml_parser!
   acts_as_list!
   audited!
