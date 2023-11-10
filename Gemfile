@@ -56,7 +56,7 @@ source 'https://rubygems.org' do
   # rails 7
   gem 'uglifier'
   
-  gem 'puma'
+  # gem 'puma'
   
   # needet for ruby 2.7 support
   gem 'bigdecimal' #, '1.4.2'

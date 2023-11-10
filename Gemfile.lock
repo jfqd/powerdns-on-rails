@@ -258,8 +258,6 @@ GEM
     orm_adapter (0.5.0)
     power_assert (2.0.3)
     public_suffix (5.0.3)
-    puma (6.4.0)
-      nio4r (~> 2.0)
     rabl (0.16.1)
       activesupport (>= 2.3.14)
     racc (1.7.3)
@@ -411,7 +409,6 @@ DEPENDENCIES
   net-http!
   net-imap!
   net-smtp!
-  puma!
   rabl!
   rails (~> 7.0.0)!
   rails-html-sanitizer (~> 1.4.4)!
