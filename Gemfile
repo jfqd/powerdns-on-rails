@@ -1,4 +1,4 @@
-ruby ">=2.7.5"
+ruby ">=3.1.3"
 
 # global source
 source "https://rubygems.org"
@@ -56,8 +56,10 @@ source 'https://rubygems.org' do
   # rails 7
   gem 'uglifier'
   
+  gem 'puma'
+  
   # needet for ruby 2.7 support
-  gem 'bigdecimal', '1.4.2'
+  gem 'bigdecimal' #, '1.4.2'
 
   group :development do
     gem 'test-unit', '~> 3.0'
