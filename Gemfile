@@ -60,6 +60,9 @@ source 'https://rubygems.org' do
   
   # needet for ruby 2.7 support
   gem 'bigdecimal' #, '1.4.2'
+  
+  # needet for ruby 3.2 support
+  gem 'rexml'
 
   group :development do
     gem 'test-unit', '~> 3.0'
