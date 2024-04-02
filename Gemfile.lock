@@ -83,7 +83,7 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    audited (5.4.3)
+    audited (5.5.0)
       activerecord (>= 5.0, < 7.2)
       request_store (~> 1.2)
     bcrypt (3.1.20)
@@ -129,7 +129,7 @@ GEM
       bigdecimal
     cucumber-gherkin (27.0.0)
       cucumber-messages (>= 19.1.4, < 23)
-    cucumber-html-formatter (21.3.0)
+    cucumber-html-formatter (21.3.1)
       cucumber-messages (> 19, < 25)
     cucumber-messages (22.0.0)
     cucumber-rails (3.0.0)
@@ -249,7 +249,7 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0.1)
+    net-smtp (0.5.0)
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.1)
@@ -257,7 +257,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     power_assert (2.0.3)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     rabl (0.16.1)
       activesupport (>= 2.3.14)
     racc (1.7.3)
@@ -293,7 +293,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
-    rake (13.1.0)
+    rake (13.2.0)
     ref (2.0.0)
     regexp_parser (2.9.0)
     request_store (1.6.0)
