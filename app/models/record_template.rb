@@ -99,7 +99,7 @@ class RecordTemplate < ApplicationRecord
         # skip associations we don't have, validations we don't care about
         next if k == :domain_id || k == :domain || k == :name || k == :contact
 
-        self.errors.add( k, v )
+        self.errors.add( k, v ) rescue nil
       end unless record.valid?
     end
   end

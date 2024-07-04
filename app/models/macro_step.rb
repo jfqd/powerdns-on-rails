@@ -48,7 +48,7 @@ class MacroStep < ApplicationRecord
       # created. This check offsets that, but might be flawed.
       next if k == :domain && v == I18n.t('activerecord.errors.messages.blank')
 
-      self.errors.add( k, v )
+      self.errors.add( k, v ) rescue nil
     end unless record.valid?
   end
 
