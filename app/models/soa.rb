@@ -21,11 +21,11 @@ class SOA < Record
     :less_than_or_equal_to => 10800
 
   validates_uniqueness_of :domain_id
-  validates_format_of :contact, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+  validates_format_of :contact, :with => /[a-z@.-]/
   validates :name, :presence => true, :hostname => true
 
   before_validation :set_content
-  # before_update    :update_serial
+  before_update    :update_serial
   after_initialize :update_convenience_accessors
 
   # The portions of the +content+ column that make up our SOA fields
@@ -40,11 +40,10 @@ class SOA < Record
     end
   end
 
-  # Treat contact specially, replacing the first period with an @ if
-  # no @'s are present
+  # Treat contact specially, replacing @ with a period.
   def contact=( email )
-    if !email.nil? && email.index('@').nil?
-      email.sub!('.', '@')
+    if email.present? && email.index('@').nil?
+      email.sub!('@', '.')
     end
 
     @contact = email
