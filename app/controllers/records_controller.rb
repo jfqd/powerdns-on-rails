@@ -53,7 +53,7 @@ class RecordsController < InheritedResources::Base
   # Non-CRUD methods
   def update_soa
     @domain = parent
-    @domain.soa_record.update_attributes( soa_params )
+    @domain.soa_record.update( soa_params )
   end
   
   protected

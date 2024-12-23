@@ -32,7 +32,7 @@ class MacroStepsController < InheritedResources::Base
     position = macro_step_params.delete(:position)
 
     @macro_step = parent.macro_steps.find( params[:id] )
-    @macro_step.update_attributes( macro_step_params )
+    @macro_step.update( macro_step_params )
 
     @macro_step.insert_at( position.to_i ) if position
 

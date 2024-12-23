@@ -14,7 +14,7 @@ class RecordTemplatesController < ApplicationController
   def update
     @record_template = RecordTemplate.find(params[:id])
 
-    @record_template.update_attributes(record_template_params)
+    @record_template.update(record_template_params)
 
     respond_to do |format|
       format.js
