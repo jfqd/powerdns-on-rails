@@ -108,7 +108,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     columnize (0.9.0)
-    concurrent-ruby (1.3.5)
+    concurrent-ruby (1.3.4)
     crass (1.0.6)
     cucumber (9.2.1)
       builder (~> 3.2)
@@ -398,6 +398,7 @@ DEPENDENCIES
   audited!
   bigdecimal!
   coffee-rails!
+  concurrent-ruby (= 1.3.4)!
   cucumber-rails!
   daemons!
   database_cleaner!

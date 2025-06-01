@@ -63,6 +63,8 @@ source 'https://rubygems.org' do
   
   # needet for ruby 3.2 support
   gem 'rexml'
+  
+  gem 'concurrent-ruby', '1.3.4'
 
   group :development do
     gem 'test-unit', '~> 3.0'
