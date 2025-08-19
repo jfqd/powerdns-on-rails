@@ -2,7 +2,7 @@ begin
   ActionMailer::Base.logger = nil
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :enable_starttls_auto => ENV['SMTP_START_TLS'],
+    :enable_starttls_auto => (ENV['SMTP_START_TLS'] == "true" ? true : false),
     :address              => ENV['SMTP_ADDRESS'],
     :domain               => ENV['SMTP_DOMAIN'],
     :port                 => ENV['SMTP_PORT'],
