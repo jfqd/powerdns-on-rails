@@ -6,7 +6,7 @@ source "https://rubygems.org"
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 7.0.0'
+  gem 'rails', '~> 7.1.5.2'
   gem 'rails-observers'
 
   group :assets do
@@ -27,7 +27,7 @@ source 'https://rubygems.org' do
   gem 'jquery-rails'
   gem 'will_paginate'
   gem "audited"
-  gem 'inherited_resources', '~> 1.13.1'
+  gem 'inherited_resources', '~> 1.14.0'
   gem 'actionpack-xml_parser'
   gem 'devise'
   gem "devise-encryptable"
@@ -50,18 +50,21 @@ source 'https://rubygems.org' do
   gem "net-imap"
   gem "uri"
 
-  gem "rails-html-sanitizer", "~> 1.4.4"
+  gem "rails-html-sanitizer"
   gem "loofah"
   
   # rails 7
   gem 'uglifier'
   
-  # gem 'puma'
+  gem 'puma'
   
-  # needet for ruby 2.7 support
-  gem 'bigdecimal' #, '1.4.2'
+  # bundle_report outdated
+  # gem 'next_rails'
   
-  # needet for ruby 3.2 support
+  # needet for ruby >= 2.7 support
+  gem 'bigdecimal'
+  
+  # needet for ruby >= 3.2 support
   gem 'rexml'
   
   gem 'concurrent-ruby', '1.3.4'
