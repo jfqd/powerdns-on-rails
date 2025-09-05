@@ -102,7 +102,7 @@ GEM
     base64 (0.3.0)
     bcrypt (3.1.20)
     benchmark (0.4.1)
-    bigdecimal (3.2.2)
+    bigdecimal (3.2.3)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -294,7 +294,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.1)
+    puma (7.0.0)
       nio4r (~> 2.0)
     rabl (0.17.0)
       activesupport (>= 2.3.14)
