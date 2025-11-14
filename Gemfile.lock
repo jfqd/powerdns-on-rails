@@ -187,7 +187,7 @@ GEM
     dynamic_form (1.3.1)
       actionview (> 5.2.0)
       activemodel (> 5.2.0)
-    erb (5.1.3)
+    erb (6.0.0)
     erubi (1.13.1)
     erubis (2.7.0)
     exception_notification (5.0.1)
@@ -262,16 +262,16 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
-    minitest (5.26.0)
-    mocha (2.7.1)
+    minitest (5.26.1)
+    mocha (2.8.0)
       ruby2_keywords (>= 0.0.5)
     multi_test (1.1.0)
     mutex_m (0.3.0)
     mysql2 (0.5.7)
       bigdecimal
     naught (1.1.0)
-    net-http (0.7.0)
-      uri
+    net-http (0.8.0)
+      uri (>= 0.11.1)
     net-imap (0.5.12)
       date
       net-protocol
@@ -347,7 +347,7 @@ GEM
       tsort
     ref (2.0.0)
     regexp_parser (2.11.3)
-    reline (0.6.2)
+    reline (0.6.3)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -402,7 +402,7 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     state_machines (0.100.4)
-    stringio (3.1.7)
+    stringio (3.1.8)
     sys-uname (1.4.1)
       ffi (~> 1.1)
       memoist3 (~> 1.0.0)
