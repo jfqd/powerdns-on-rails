@@ -17,6 +17,8 @@ env.production
 assets/.sprockets*
 public/assets/.sprockets*
 
+db/tls
+
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 
