@@ -39,7 +39,10 @@ PowerdnsOnRails::Application.configure do
   config.serve_static_assets = true
 
   config.assets.css_compressor = :sassc
-  config.assets.js_compressor  = Uglifier.new(:harmony => true)
+  config.assets.configure do |env|
+    env.js_compressor  = :uglifier # or :closure, :yui
+    env.css_compressor = :sass   # or :yui
+  end
   config.assets.compile        = true
   config.assets.digest         = true
   config.assets.gzip           = true
