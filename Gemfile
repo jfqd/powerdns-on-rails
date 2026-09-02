@@ -6,7 +6,7 @@ source "https://rubygems.org"
 source 'https://rubygems.org' do
 
   gem "dotenv"
-  gem 'rails', '~> 7.1.5.2'
+  gem 'rails', '~> 7.2'
   gem 'rails-observers'
 
   group :assets do
@@ -67,7 +67,7 @@ source 'https://rubygems.org' do
   # needet for ruby >= 3.2 support
   gem 'rexml'
   
-  gem 'concurrent-ruby', '1.3.4'
+  gem 'concurrent-ruby' #, '1.3.4'
 
   group :development do
     gem 'test-unit', '~> 3.0'
