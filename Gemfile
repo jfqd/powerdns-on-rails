@@ -56,6 +56,9 @@ source 'https://rubygems.org' do
   # rails 7
   gem 'uglifier'
   
+  # can be removed with rails > 8
+  gem "json", "<=3.1.0"
+  
   gem 'puma'
   
   # bundle_report outdated
