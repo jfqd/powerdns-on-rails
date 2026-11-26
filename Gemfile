@@ -37,7 +37,6 @@ source 'https://rubygems.org' do
   gem "font-awesome-rails"
 
   gem 'acts_as_list'
-  gem 'dynamic_form'
 
   gem 'delayed_job', '~>4.1.10'
   gem 'delayed_job_active_record', '~>4.1.7'
@@ -96,4 +95,5 @@ end
 
 source 'https://gemsrv.qutic.net/' do
   gem 'rundeck-ruby-client'
+  gem 'dynamic_form'
 end
