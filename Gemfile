@@ -1,4 +1,4 @@
-ruby ">=3.1.3"
+ruby ">=3.4.0"
 
 # global source
 source "https://rubygems.org"
@@ -53,10 +53,10 @@ source 'https://rubygems.org' do
   gem "loofah"
   
   # rails 7
-  gem 'uglifier'
+  gem 'terser'
   
-  # can be removed with rails > 8
-  gem "json", "<=3.1.0"
+  # version restriction can be removed with rails > 8
+  gem "json", "<=2.21.2"
   
   gem 'puma'
   
